@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { compileMDX } from "next-mdx-remote/rsc";
+import matter from "gray-matter";
 import {
   assertQuoteFrontmatter,
   assertSectionFrontmatter,
@@ -17,33 +17,6 @@ const QUOTES_DIRECTORY = path.join(process.cwd(), "content", "quotes");
 
 export type { Quote, QuoteMetadata, Section, SectionFrontmatter, QuoteFrontmatter };
 
-async function compileContent(
-  source: string,
-  slug: string,
-): Promise<{ frontmatter: Record<string, unknown>; content: string }> {
-  try {
-    const result = await compileMDX({
-      source,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          remarkPlugins: [],
-        },
-      },
-    });
-    // compileMDX returns JSX content; we'll store it as the source code string
-    // The actual rendering happens in SectionRenderer via MDXRemote
-    return {
-      frontmatter: result.frontmatter as Record<string, unknown>,
-      content: source.split("---").slice(2).join("---").trim(),
-    };
-  } catch (err) {
-    throw new Error(
-      `Failed to compile MDX for "${slug}": ${err instanceof Error ? err.message : String(err)}`,
-    );
-  }
-}
-
 export async function getSection(slug: string): Promise<Section> {
   const filePath = path.join(SECTIONS_DIRECTORY, `${slug}.mdx`);
 
@@ -52,13 +25,13 @@ export async function getSection(slug: string): Promise<Section> {
   }
 
   const raw = fs.readFileSync(filePath, "utf8");
-  const { frontmatter, content } = await compileContent(raw, slug);
-  const fm = assertSectionFrontmatter(frontmatter, slug);
+  const { data, content } = matter(raw);
+  const fm = assertSectionFrontmatter(data, slug);
 
   return {
     slug,
     ...fm,
-    content,
+    content: content.trim(),
     rawContent: raw,
   };
 }
@@ -71,13 +44,13 @@ export async function getQuote(slug: string): Promise<Quote> {
   }
 
   const raw = fs.readFileSync(filePath, "utf8");
-  const { frontmatter, content } = await compileContent(raw, slug);
-  const fm = assertQuoteFrontmatter(frontmatter, slug);
+  const { data, content } = matter(raw);
+  const fm = assertQuoteFrontmatter(data, slug);
   const meta = toQuoteMetadata({ ...fm, slug, rawContent: raw });
 
   return {
     ...meta,
-    content,
+    content: content.trim(),
   };
 }
 
