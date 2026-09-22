@@ -1,0 +1,138 @@
+---
+title: "Phasing and the initial investment"
+kicker: "Phasing"
+---
+
+The proposed phases follow the priorities identified through our discussions and workshops with Verona.
+
+For both rebuild options, the majority of the investment sits within the first phase because this is where the core platform, integrations and essential customer journeys need to be established.
+
+Under the current scope, approximately 91% of the Vendure Core estimate and 90% of the Shopify Plus estimate sit within Phase 1.
+
+This is important when considering phasing commercially. The proposed approach allows Verona to sequence delivery, launch the core service first and introduce additional functionality afterwards, but it does not currently create a significantly lower-cost first release.
+
+## Why Phase 1 represents most of the investment
+
+The first release needs to establish the foundations that the later functionality depends on.
+
+For the Vendure Core route this includes the core commerce application, frontend experience, customer and account structure, product catalogue, pricing, ordering, administration functionality and the key Orderwise integration.
+
+These elements account for a significant proportion of the overall development effort regardless of whether some secondary functionality is introduced immediately or in a later phase.
+
+Once those foundations are in place, subsequent phases can build on the same platform rather than repeating that initial investment.
+
+## What phasing gives Verona
+
+The main benefit of phasing is therefore delivery control rather than simply reducing the overall project cost.
+
+It gives Verona the opportunity to:
+
+1. Focus the first release on the most important customer journeys
+2. Validate the new platform with real customers before introducing further functionality
+3. Spread some of the development investment beyond the initial launch
+4. Use feedback and live platform data to influence later priorities
+5. Avoid delaying the core replacement while lower-priority functionality is completed
+
+The later phases can then focus on extending the platform once the core service is established and operating successfully.
+
+## If Verona wants a smaller initial investment
+
+If reducing the initial commitment is a priority, we can review the Phase 1 scope with Verona and identify whether a genuinely smaller first release is practical.
+
+This would require more than simply moving secondary features into a later phase. We would need to agree which customer groups, account types or workflows could reasonably remain on an alternative process while the first version of the new portal is launched.
+
+For example, this could mean initially supporting a narrower group of customers or deferring more complex account functionality until a later release.
+
+Any such change would need to consider how affected customers continue to order in the meantime, whether temporary processes are required and whether deferring functionality creates additional development or migration work later.
+
+We would then re-estimate the revised Phase 1 rather than assuming that moving a feature automatically removes its full cost from the initial build.
+
+## Indicative phase allocations
+
+The phase values shown in this proposal should be treated as indicative allocations of the overall project estimate until the detailed scope and technical validation have been completed.
+
+The overall current budget estimates remain:
+
+| Platform | Amount |
+|----------|--------|
+| Vendure Core rebuild | £116,200 + VAT |
+| Shopify Plus rebuild | £123,200 + VAT |
+
+### Vendure Core
+
+| Phase | Scope | Indicative hours | Indicative cost |
+|-------|-------|------------------|-----------------|
+| MVP / Phase 1 | Retain core current-site functionality and deliver all Priority 1 requirements. Includes new design and Next.js storefront, Vendure Core foundation, CMS, group/division architecture, customer and organisation model, housebuilder/contractor/development model, roles and permissions, customer-specific catalogues and pricing, core Orderwise syncs, online ordering, stock, search, product catalogue, checkout, delivery rules, resources, merchant/key-account portals, WIZMO/tracking, payments, migration, analytics, accessibility and deployment. | 1,135 hrs | £105,934 + VAT |
+| Phase 2 | Priority 2 requirements including enhanced order amendments, reorder/saved baskets/quick ordering, invoices, partial deliveries, enhanced stock/alternative-product functionality, auto-generated PDFs, privacy mode, account information, damage requests and enhanced stockist/discontinued-product functionality. | 85 hrs | £7,933 + VAT |
+| Optional / Phase 3 | Priority 3 requirements including extended delivery reservation windows, customer-specific login pop-ups and Wickes InSitu functionality. | 25 hrs | £2,333 + VAT |
+| Excluded / separately quoted | Priority 4 requirements: product batch information, sample ordering and subscription ordering. These should be technically scoped before pricing. | TBC | TBC |
+| **Quoted project total** | **Existing Vendure Core estimate excluding separately quoted Priority 4 items.** | **1,245 hrs** | **£116,200 + VAT** |
+
+### Shopify Plus
+
+| Phase | Scope | Indicative hours | Indicative cost |
+|-------|-------|------------------|-----------------|
+| MVP / Phase 1 | Retain core current-site functionality and deliver Priority 1 requirements using Shopify Plus B2B wherever practical. Includes theme/storefront, CMS, Companies/Locations, customer and branch model, housebuilder custom application layer, catalogues, pricing, Orderwise integrations, ordering, stock, search, product catalogue, B2B checkout, core delivery rules, resources, merchant/key-account portals, WIZMO/tracking, migration, analytics, security and deployment. | 1,185 hrs | £110,600 + VAT |
+| Phase 2 | Priority 2 functionality requiring additional Shopify configuration and custom-app workflows, including post-order amendments, reorder/saved basket journeys, invoices/account data, partial/back-order processes, auto-generated documents, privacy mode and additional support functionality. | 105 hrs | £9,800 + VAT |
+| Optional / Phase 3 | Priority 3 enhancements including extended delivery scheduling, account-specific notifications/pop-ups and Wickes InSitu integration. | 30 hrs | £2,800 + VAT |
+| Excluded / separately quoted | Priority 4 requirements: product batch information, sample ordering and subscription ordering. These would require further Shopify/Orderwise feasibility work. | TBC | TBC |
+| **Quoted project total** | **Existing Shopify Plus estimate excluding separately quoted Priority 4 items.** | **1,320 hrs** | **£123,200 + VAT** |
+
+The objective of the phasing is to give Verona a controlled route through delivery and launch while keeping the commercial implications clear.
+
+## Current site functionality to retain
+
+| Requirement area | Current functionality to retain | Priority | Phase | Vendure Core solution | Shopify Plus solution | Orderwise dependency |
+| --- | --- | ---: | --- | --- | --- | --- |
+| Administration | CMS administration and user-role management | 1 | MVP | Vendure Core administration plus CMS/editor tooling | Shopify Admin, theme editor and custom app configuration | No / Partial for account roles |
+| Analytics & reporting | GA, Clarity and existing reporting requirements | 1 | MVP | GA4/GTM/Clarity implementation | GA4/GTM/Clarity implementation | No |
+| Product data | Product, specification, stock, pricing and availability sync | 1 | MVP | Direct Orderwise → Vendure Core integration | Custom Orderwise → Shopify app/integration | **Yes** |
+| Customer data | Customer sync and automated account creation | 1 | MVP | Customer/organisation entities synchronised from Orderwise | Shopify Companies/Locations synchronised via custom app | **Yes** |
+| Content management | Page builder, landing pages, FAQs, clearance and campaign content | 1 | MVP | Self-service CMS/page builder | Shopify sections, metaobjects and metafields | No |
+| Stockist locator | Existing Where to Buy / retailer locator | 1 | MVP | Custom locator | Custom Shopify locator | Partial if retailer/account data originates in Orderwise |
+| Product calculator | Existing tile-calculation functionality | 1 | MVP | Retained/custom component | Retained/custom theme/app component | Partial, product quantities |
+| Customer accounts | Registration, login/profile, saved addresses, credit visibility and account history | 1 | MVP | Custom Vendure Core account portal | Shopify B2B customer accounts plus custom account functionality | **Yes** for account/credit/order data |
+| Customer restrictions | Product/pricing/stock visibility and add-to-cart permissions by group | 1 | MVP | Native/custom Vendure Core channels and permission model | Shopify B2B Catalogues plus custom app logic | **Yes** for commercial assignments |
+| Live chat | Logged-in customer chat | 1 | MVP | Existing service integrated with authenticated customer context | Existing service integrated with Shopify customer context | Partial |
+| Forms | Newsletter, account requests, password reset, invoice enquiries and consent | 1 | MVP | CMS/forms/auth implementation | Shopify/customer account/forms implementation | Partial for invoices/account requests |
+| Orderwise ERP | Products, customers, pricing and stock integration | 1 | MVP | Custom Vendure Core API integration | Custom Shopify application/integration | **Yes, core dependency** |
+| Existing integrations | InSitu/Roomvo, address lookup, payment gateway and email marketing | 1 | MVP | Retained/reimplemented as required | Retained/reimplemented as Shopify integrations/apps | Partial |
+| Inventory | Real-time stock, stock status, back-in-stock messaging and restock dates | 1 | MVP | Orderwise-powered availability | Orderwise-powered Shopify stock/custom data | **Yes** |
+| Marketing | New arrivals, banners, page-built content and Real Homes | 1 | MVP | CMS-managed | Shopify CMS/theme-managed | No / Partial for product selection |
+| Marketing resources | Logged-in product/marketing assets and approval-controlled downloads | 1 | MVP | Resource centre with permission controls | Protected Shopify/customer resource area | Partial |
+| Product media | Images, video, brochures/catalogues | 1 | MVP | Product/CMS model | Shopify media/metaobjects | Partial for product data |
+| Basket & ordering | Basket, checkout, order placement, references and special instructions | 1 | MVP | Custom Vendure Core checkout/order workflows | Shopify B2B checkout with custom extensions where necessary | **Yes** when submitted to Orderwise |
+| Delivery | Surcharges, customer delivery options, lead times and NDD | 1 | MVP | Custom rules based on Verona/Orderwise data | Shopify Functions/custom app logic | **Yes / Partial** |
+| Payments | Credit account, card and tax handling | 1 | MVP | Vendure Core + Stripe/account logic | Shopify Payments/payment terms/B2B configuration | **Yes / Partial** for account status/terms |
+| Pricing | Customer prices, price breaks, multiple price lists and discounts | 1 | MVP | Custom Vendure Core pricing/channel logic | Shopify B2B Catalogues/pricing plus integration | **Yes** |
+| Product catalogue | Products, variants, specifications, attributes, quantities and downloads | 1 | MVP | Vendure Core catalogue extended for Verona | Shopify catalogue/metafields/metaobjects | **Yes** for product master data |
+| Recommendations | Related/cross-sell/checkout upsell | 1 | MVP | Vendure Core recommendation relationships | Shopify product recommendations/custom rules | Partial |
+| Search & navigation | Search, advanced filtering, sorting, mega menu and breadcrumbs | 1 | MVP | Algolia/search index over permitted catalogue | Shopify/search service over permitted catalogue | Partial, indexed Orderwise product attributes |
+| Security | GDPR, RBAC and customer-group permission enforcement | 1 | MVP | Bespoke permission model | Shopify B2B permissions plus custom controls | Partial |
+| SEO | Search Console and technical SEO requirements | 1 | MVP | Next.js implementation | Shopify theme implementation | No |
+| Hosting | Existing AWS infrastructure requirement | 1 | MVP | AWS/Cloudflare application infrastructure | Shopify-hosted storefront plus hosting for custom integration/app services | No |
+| Responsive UX | Mobile-responsive site | 1 | MVP | Responsive Next.js application | Responsive Shopify theme | No |
+
+## Workshop requirements
+
+| Audience | Workshop requirements | Priority | Phase | Vendure Core solution | Shopify Plus solution | Orderwise API dependency |
+| --- | --- | ---: | --- | --- | --- | --- |
+| Housebuilders | Configurable delivery/commercial rules; resources; saved project addresses; account-manager information; live chat; real-time stock; product banding; online ordering; credit/proforma/card payments; customer-specific catalogue/pricing; detailed product data; powerful filtering/Product Finder; account permissions; scheduled/held deliveries; tracking/POD/order history | **1** | **MVP** | Bespoke housebuilder, contractor and development model within Vendure Core | Shopify B2B plus bespoke app layer for development/contractor context | **High**, stock, pricing, customer/project data, account status, orders and tracking |
+| Independents | Multi-user accounts; account-manager details; improved marketing requests; accurate ETAs; back orders/future availability/alternatives; new/clearance/popular content; m²/tile/box pricing; descriptions; intelligent search; WIZMO tracking across all orders | **1** | **MVP** | Vendure Core trade portal | Shopify B2B/customer portal with custom Orderwise integration | **High** |
+| Selco | Information centre; account-manager details; live stock; full order visibility/tracking | **1** | **MVP** | Customer-specific informational portal | Shopify company/location portal with custom account views | **High** for stock/orders |
+| Wickes | Resource hub; account-manager details; live stock; order tracking; dedicated catalogue/customer product descriptions | **1** | **MVP** | Customer-specific catalogue and portal | Shopify B2B catalogue plus custom account/product data | **High** |
+| Merchants | Self-service documents; live stock/lead times/alternatives; order tracking/history/acknowledgements; customer pricing/product visibility; fast technical search; branch accounts/permissions; accurate self-service information | **1** | **MVP** | Merchant portal within common Vendure Core account model | Shopify Companies/Locations with custom portal functionality | **High** |
+| Sales Support | Better marketing materials; one-off/saved addresses; authenticated Live Chat context; accurate OOS restock dates; improved search; hidden pricing; seniority-based access levels; delivery SMS/mobile prompts | **1** | **MVP** | Custom account and permission functionality | Shopify customer/company data plus bespoke extensions/app functionality | **Medium–High** |
+| Housebuilders | Alternative products; timed order amendments; invoices; auto-generated PDFs; partial deliveries/back orders/future availability | **2** | **Phase 2** | Additional custom order/account workflows | Bespoke Shopify app/workflow extensions | **High**, particularly order amendment and fulfilment |
+| Independents | Post-order amendments; reorder/saved baskets/favourites/quick SKU ordering; invoices; image-based product matching; accessory calculator | **2** | **Phase 2** | Custom Vendure Core extensions | Shopify app/theme extensions and external image/search capability | **Mixed**, high for orders/invoices, low for image matching |
+| Selco | Privacy mode / hide customer pricing | **2** | **Phase 2** | Frontend permission/display mode | Custom Shopify theme/account state | No |
+| Wickes | Customer-specific banner and privacy mode | **2** | **Phase 2** | CMS/customer-context functionality | Shopify customer-specific content/custom theme logic | No / Partial |
+| Merchants | Auto-generated PDFs; invoices/account information; post-order amendments | **2** | **Phase 2** | Custom portal/order functionality | Custom Shopify app/account functionality | **High** |
+| Sales Support | Auto-generated technical sheets; damage requests; live stockist data; add to submitted order; historical discontinued products | **2** | **Phase 2** | Custom workflows and product/account tooling | Custom Shopify app/portal workflows | **Mixed / High** |
+| Independents | Extended delivery reservation window | **3** | **Optional** | Extend delivery scheduler | Custom Shopify delivery scheduling | **Potentially**, depending on Orderwise capacity/calendar data |
+| Selco | Account-specific display-stand rollout pop-ups | **3** | **Optional** | Customer-targeted CMS messaging | Shopify customer/company-targeted content | No |
+| Wickes | Extend InSitu visualiser to Wickes products | **3** | **Optional** | Existing integration expanded to Wickes catalogue | Existing integration expanded to Shopify catalogue | Partial |
+| Wickes | Login pop-ups | **3** | **Optional** | Customer-targeted CMS messaging | Shopify customer/company-targeted theme/app content | No |
+| Housebuilders | Product batch information | **4** | **Excluded / separately quoted** | Feasible subject to data availability | Custom Shopify display/data integration | **Yes, requires batch data from Orderwise** |
+| Independents | Sample ordering | **4** | **Excluded / separately quoted** | Separate sample-order workflow | Custom Shopify product/order workflow | Partial / likely |
+| Independents | Subscription ordering | **4** | **Excluded / separately quoted** | Recurring-order functionality requiring further design | Shopify subscription/custom B2B workflow requiring feasibility review | **High** if repeat orders must originate/process in Orderwise |
