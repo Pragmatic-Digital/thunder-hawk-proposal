@@ -2,9 +2,9 @@
 
 import { useActiveSection } from "@/components/ActiveSection";
 import { cn } from "@/lib/cn";
-import type { QuoteMeta } from "@/lib/types";
+import type { Quote } from "@/lib/content-schema";
 
-export function QuoteSwitcher({ quotes }: { quotes: QuoteMeta[] }) {
+export function QuoteSwitcher({ quotes }: { quotes: Quote[] }) {
   const { activeId } = useActiveSection();
   const current = quotes.find((quote) => quote.slug === activeId);
   const visible = Boolean(current);

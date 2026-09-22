@@ -5,6 +5,7 @@ export type SectionFrontmatter = {
   kicker?: string;
   layout?: "prose" | "quote" | "hero" | "invert" | "retool";
   tone?: "default" | "invert" | "retool";
+  lede?: string;
 };
 
 export type QuoteFrontmatterExtension = {
@@ -96,7 +97,7 @@ function parseComparison(value: unknown): QuoteFrontmatterExtension["comparison"
 export function assertSectionFrontmatter(
   data: Record<string, unknown>,
   slug: string,
-): SectionFrontmatter {
+): SectionFrontmatter & Record<string, unknown> {
   const required = ["title"] as const;
   for (const field of required) {
     if (data[field] === undefined || data[field] === null || data[field] === "") {
@@ -104,10 +105,12 @@ export function assertSectionFrontmatter(
     }
   }
   return {
+    ...data,
     title: String(data.title),
     kicker: data.kicker ? String(data.kicker) : undefined,
     layout: data.layout ? (String(data.layout) as SectionFrontmatter["layout"]) : undefined,
     tone: data.tone ? (String(data.tone) as SectionFrontmatter["tone"]) : undefined,
+    lede: data.lede ? String(data.lede) : undefined,
   };
 }
 

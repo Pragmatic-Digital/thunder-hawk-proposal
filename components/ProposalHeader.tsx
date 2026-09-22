@@ -2,15 +2,15 @@
 
 import { useActiveSection } from "@/components/ActiveSection";
 import { cn } from "@/lib/cn";
-import { site } from "@/lib/site";
-import { getNavItems, type NavItem, type QuoteMeta } from "@/lib/types";
+import config from "@/proposal.config";
+import type { ResolvedNavItem } from "@/lib/nav";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-export function ProposalHeader({ quotes }: { quotes: QuoteMeta[] }) {
+export function ProposalHeader({ quotes, navItems }: { quotes: any[]; navItems: ResolvedNavItem[] }) {
   const { activeId } = useActiveSection();
-  const items = getNavItems(quotes);
+  const items = navItems;
   const itemKey = items.map((item) => item.id).join("|");
   const headerRef = useRef<HTMLElement>(null);
   const measureRef = useRef<HTMLUListElement>(null);
@@ -106,17 +106,17 @@ export function ProposalHeader({ quotes }: { quotes: QuoteMeta[] }) {
               priority
             />
             <span className="truncate text-[0.88rem] font-semibold tracking-tight sm:text-[0.95rem]">
-              {site.agency}
+              {config.site.agency}
             </span>
           </a>
 
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <div className="min-w-0 text-right">
               <p className="truncate text-[0.8rem] font-medium tracking-tight sm:text-[0.95rem]">
-                {site.client}
+                {config.site.client}
               </p>
               <p className="truncate text-[0.58rem] uppercase tracking-[0.12em] text-ink-muted sm:text-[0.68rem] sm:tracking-[0.16em]">
-                {compact ? current?.label : site.proposalLabel}
+                {compact ? current?.label : config.site.proposalLabel}
               </p>
             </div>
 
@@ -157,26 +157,6 @@ export function ProposalHeader({ quotes }: { quotes: QuoteMeta[] }) {
               {items.map((item) => (
                 <li key={item.id} className="flex shrink-0 items-center">
                   <NavAnchor item={item} activeId={activeId} className="rounded-full px-3 py-1.5 text-[0.78rem]" />
-                  {item.children?.length ? (
-                    <span className="ml-0.5 hidden items-center md:flex">
-                      {item.children.map((child) => {
-                        const active = child.id === activeId;
-                        return (
-                          <a
-                            key={child.id}
-                            href={`#${child.id}`}
-                            aria-current={active ? "location" : undefined}
-                            className={cn(
-                              "rounded-full px-2.5 py-1.5 text-[0.72rem] tracking-wide transition-colors",
-                              active ? "text-ink" : "text-ink-muted/80 hover:text-ink",
-                            )}
-                          >
-                            {child.label}
-                          </a>
-                        );
-                      })}
-                    </span>
-                  ) : null}
                 </li>
               ))}
             </ul>
@@ -224,18 +204,17 @@ function NavAnchor({
   className,
   onNavigate,
 }: {
-  item: NavItem;
+  item: ResolvedNavItem;
   activeId: string;
   className?: string;
   onNavigate?: () => void;
 }) {
-  const childActive = item.children?.some((child) => child.id === activeId) ?? false;
   const groupActive = item.matchIds.includes(activeId) || item.id === activeId;
 
   return (
     <a
       href={`#${item.id}`}
-      aria-current={groupActive && !childActive ? "location" : undefined}
+      aria-current={groupActive ? "location" : undefined}
       onClick={onNavigate}
       className={cn(
         "tracking-wide transition-colors",
