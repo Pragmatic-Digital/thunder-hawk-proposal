@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import type { SectionConfigEntry } from "@/lib/config-schema";
 import type { Quote } from "@/lib/content-schema";
 import { getSection } from "@/lib/content";
@@ -64,7 +64,7 @@ export async function renderSectionEntry(
         </div>
       );
     }
-    return <>{sections}</>;
+    return <Fragment key={`${keyPrefix}quotegroup-${entry.quoteGroup}`}>{sections}</Fragment>;
   }
 
   if (entry.component === "hero") {
