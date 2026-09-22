@@ -45,15 +45,18 @@ export async function renderSectionEntry(
     if (entry.component === "comparison-table") {
       return <QuoteComparison key="comparison" quotes={filtered as any} />;
     }
-    const sections = filtered.map((quote, index) => (
-      <QuoteSection
-        key={quote.slug}
-        quote={quote as any}
-        index={entry.quoteGroup === "rebuild" ? index : undefined}
-        compactTop={entry.quoteGroup === "rebuild" && index === 0}
-        className={entry.quoteGroup === "rebuild" && index === 0 ? "border-t-0" : undefined}
-      />
-    ));
+    const sections = filtered.map((quote, index) => {
+      const key = entry.quoteGroup === "rebuild" ? `${entry.quoteGroup}-${index}` : `${entry.quoteGroup}-${quote.slug}`;
+      return (
+        <QuoteSection
+          key={key}
+          quote={quote as any}
+          index={entry.quoteGroup === "rebuild" ? index : undefined}
+          compactTop={entry.quoteGroup === "rebuild" && index === 0}
+          className={entry.quoteGroup === "rebuild" && index === 0 ? "border-t-0" : undefined}
+        />
+      );
+    });
     if (entry.tone === "retool") {
       return (
         <div key="retool-group" className="retool-section bg-page-deep/70">
