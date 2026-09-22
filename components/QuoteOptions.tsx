@@ -1,14 +1,17 @@
 import { CtaLink } from "@/components/CtaButton";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";
-import { optionsAtAGlance } from "@/lib/site";
 import type { QuoteMeta } from "@/lib/types";
 import { ArrowRight } from "lucide-react";
 
 export function QuoteOptions({ quotes }: { quotes: QuoteMeta[] }) {
-  const items = optionsAtAGlance.items.map((item) => ({
-    ...item,
-    href: quotes.some((quote) => quote.slug === item.slug) ? `#${item.slug}` : "#scope-and-pricing",
+  const items = quotes.map((quote) => ({
+    slug: quote.slug,
+    title: quote.title,
+    price: quote.price,
+    body: quote.summary,
+    recommended: quote.recommended,
+    href: `#${quote.slug}`,
   }));
 
   return (
@@ -22,7 +25,7 @@ export function QuoteOptions({ quotes }: { quotes: QuoteMeta[] }) {
             id="options-heading"
             className="font-display mt-3 max-w-2xl text-[1.75rem] tracking-[-0.03em] text-ink sm:text-4xl"
           >
-            {optionsAtAGlance.heading}
+            Options at a glance
           </h2>
         </Reveal>
 
@@ -73,7 +76,7 @@ export function QuoteOptions({ quotes }: { quotes: QuoteMeta[] }) {
 
         <Reveal delay={280}>
           <p className="mt-10 max-w-3xl text-sm leading-relaxed text-ink-muted sm:mt-12">
-            {optionsAtAGlance.footnote}
+            These figures are budget estimates, subject to agreed scope and technical validation. Ongoing platform, infrastructure, third-party service and support costs will be confirmed alongside the delivery programme before commitment to the build.
           </p>
         </Reveal>
       </div>

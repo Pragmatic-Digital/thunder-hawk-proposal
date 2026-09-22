@@ -1,10 +1,25 @@
 import { Reveal } from "@/components/Reveal";
 import { ScrollableTable } from "@/components/ScrollableTable";
 import { cn, formatDays, formatHours } from "@/lib/cn";
-import { comparisonRows, getComparison, site } from "@/lib/site";
 import { getRebuildQuotes, type QuoteMeta } from "@/lib/types";
 
-function cellValue(quote: QuoteMeta, key: (typeof comparisonRows)[number]["key"]) {
+const comparisonRows = [
+  { key: "platform", label: "Platform" },
+  { key: "price", label: "Total cost" },
+  { key: "hours", label: "Hours" },
+  { key: "days", label: "Days" },
+  { key: "architecture", label: "Architecture approach" },
+  { key: "search", label: "Search" },
+  { key: "flexibility", label: "Flexibility" },
+  { key: "nativeB2B", label: "Native B2B capability" },
+  { key: "bespokeWorkflow", label: "Bespoke workflow capability" },
+  { key: "ongoingDependency", label: "Ongoing platform dependency" },
+] as const;
+
+function cellValue(
+  quote: QuoteMeta & { comparison?: Record<string, string> },
+  key: (typeof comparisonRows)[number]["key"],
+) {
   if (key === "platform") {
     return quote.platform;
   }
@@ -21,7 +36,7 @@ function cellValue(quote: QuoteMeta, key: (typeof comparisonRows)[number]["key"]
     return formatDays(quote.days);
   }
 
-  return getComparison(quote.slug)?.[key] ?? "—";
+  return quote.comparison?.[key] ?? "—";
 }
 
 export function QuoteComparison({ quotes }: { quotes: QuoteMeta[] }) {
@@ -45,7 +60,7 @@ export function QuoteComparison({ quotes }: { quotes: QuoteMeta[] }) {
         <Reveal delay={80}>
           <blockquote className="print-keep mt-10 max-w-3xl border-l border-sage pl-5 sm:pl-7">
             <p className="font-display text-[1.45rem] leading-snug tracking-[-0.02em] text-ink sm:text-[1.85rem]">
-              {site.tradeoff}
+              Shopify Plus reduces the amount of platform functionality we need to build from scratch. Vendure Core provides greater freedom to model the platform around Verona&apos;s existing business processes.
             </p>
           </blockquote>
         </Reveal>

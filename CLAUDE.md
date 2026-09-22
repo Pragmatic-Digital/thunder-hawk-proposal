@@ -2,102 +2,96 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Architecture: MDX-Driven Proposal Framework
+
+This is a reusable proposal-generator framework. Content is authored in Markdown/MDX files; the site compiles them at build time and renders them server-side. To create a new proposal, fork the repo, edit the markdown files and `proposal.config.ts`, and deploy.
+
+### Three layers
+
+1. **Content** (`content/sections/` and `content/quotes/`) — Markdown/MDX files with YAML frontmatter, parsed and compiled at build time via `next-mdx-remote`.
+2. **Configuration** (`proposal.config.ts`) — Site metadata (agency/client/colours), section ordering, navigation structure. Typed and validated at module load.
+3. **Components** (`components/mdx/` + reusable layout components) — React components that render sections, handle MDX rendering, and provide custom block components (`<Video>`, `<Callout>`, `<Embed>`, etc.).
+
+### Key files
+
+- **`proposal.config.ts`** — Single source of truth for site metadata and section ordering. Edit this and the `.mdx` files; no other config needed.
+- **`content/sections/*.mdx`** — Generic proposal sections (hero, benefits, delivery, etc.). Each rendered via `<SectionRenderer>`.
+- **`content/quotes/*.mdx`** — Pricing/option quotes with extended frontmatter (price, hours, comparison fields). Auto-appear in options cards and comparison table.
+- **`lib/content.ts`** — Content loader using `compileMDX` to parse and render `.mdx` files.
+- **`lib/config-schema.ts`** and **`lib/content-schema.ts`** — TypeScript type definitions for config and content frontmatter.
+- **`components/mdx/index.tsx`** — The MDX component map and generic `<SectionRenderer>` wrapper (handles heading anchors, prose styling, custom blocks).
+
 ## Commands
 
 | Command | Purpose |
 | --- | --- |
-| `npm run dev` | Local development server on http://localhost:3000 |
+| `npm run dev` | Local dev server on http://localhost:3000 |
 | `npm run build` | Production build |
-| `npm start` | Serve the production build |
-| `npm run lint` | Run ESLint (Next.js core-web-vitals + TypeScript rules) |
+| `npm start` | Serve production build |
+| `npm run lint` | ESLint check |
 
 **Node version**: >=20 required (see `.nvmrc`).
 
-**Package manager**: npm is the primary package manager per the README. The repo also has `pnpm-lock.yaml` and `pnpm-workspace.yaml` (a single-package workspace configuration), but use npm for consistency with the documented workflow.
+**Package manager**: npm (primary; `pnpm-lock.yaml` is incidental from setup).
 
-## Architecture: Content-Driven Proposal
+## To add a new proposal section
 
-This is a single-page proposal site where the structure and content are derived from Markdown files and configuration, not hard-coded React components.
+1. Create `content/sections/my-section.mdx` with frontmatter (title, optional kicker) and Markdown body.
+2. Add an entry to `proposal.config.ts` → `sections[]`: `{ slug: "my-section" }`.
+3. No code changes needed — the page discovers it automatically.
 
-### How it works
+See `content/README.md` for Markdown conventions and custom component syntax.
 
-1. **Quote files** (`content/quotes/*.md`) — Each file represents a pricing option. YAML frontmatter drives the UI:
-   - Required fields: `title`, `shortTitle`, `platform`, `price`, `hours`, `days`, `status`, `summary`, `order`, `proposalType`, `outcomes`
-   - `proposalType`: `"rebuild"` | `"retool"` — groups quotes into sections
-   - `status`: Set to `"Recommended"` (case-insensitive) to highlight that quote
-   - `order`: Controls sort position in the proposal
-   - Markdown body below the frontmatter becomes the full proposal section content
-   
-   Example (`content/quotes/vendure.md`):
-   ```yaml
-   ---
-   title: "Vendure Custom Platform"
-   shortTitle: "Vendure"
-   platform: "Vendure + Next.js"
-   price: "£116,200 + VAT"
-   hours: 1245
-   days: 166
-   status: "Recommended"
-   summary: "A Vendure and Next.js rebuild of the trade portal."
-   order: 1
-   proposalType: "rebuild"
-   outcomes: []
-   ---
-   ```
+## To add a new pricing/quote option
 
-2. **Quote parsing** (`lib/quotes.ts`) — Uses `gray-matter` to parse frontmatter, validates required fields (throws on missing), sorts by `order`. Re-exports types and helpers from `lib/types.ts`.
+1. Create `content/quotes/vendor-name.mdx` with all required frontmatter (title, shortTitle, platform, price, hours, days, status, summary, order, proposalType).
+2. For rebuild quotes, optionally add a `comparison:` block with qualitative rows (architecture, search, flexibility, nativeB2B, bespokeWorkflow, ongoingDependency).
+3. No config edits needed — it auto-appears in options cards and (if rebuild) the comparison table.
 
-3. **Navigation derivation** (`lib/types.ts`) — `getNavItems()` and `getSectionIds()` inspect the quote list to build the nav structure. `rebuild` quotes appear in one section, `retool` quotes in another (at `RETOOL_SECTION_ID = "magento-alternative"`).
+## To change branding/site metadata
 
-4. **Generic copy** (`lib/site.ts`) — Prose that isn't quote-specific (hero, comparison trade-off, Why Pragmatic, benefits, ongoing costs, delivery, phasing narrative, next steps, cost-savings context) lives here as large `as const` objects. Edit this file to change non-quote proposal text.
+Edit `proposal.config.ts`:
+- **`site.*`** — Agency name, client name, contact details, GTM ID, etc.
+- **`theme.*`** — Colour tokens (maps to CSS vars; these are overridden at runtime via `<style>` injection in `app/layout.tsx`).
+- **`nav[]`** — Navigation items and their section targets.
+- **`sections[]`** — Section ordering and which content files to render.
 
-5. **Page layout** (`app/page.tsx`) — Calls `getQuotes()`, `getRebuildQuotes()`, `getRetoolQuotes()`, `getSectionIds()` and composes section components in order. **No React component changes are needed to add a new quote.**
+## Styling and theme
 
-### Adding a new quote
+Tailwind CSS 4 with a custom colour palette defined in `app/globals.css`'s `@theme` block. The palette uses CSS custom properties (`--color-sage`, `--color-ink`, etc.), overridable at runtime via `proposal.config.ts` theme values.
 
-1. Create a new file in `content/quotes/` with all required frontmatter fields and an `order` value.
-2. Optionally add a qualitative comparison entry in `comparisonBySlug` in `lib/site.ts` for the comparison table rows (architecture, search, flexibility, etc.). If omitted, those cells show an em dash.
-3. That's it — cards, sections, navigation and the quote switcher will update automatically.
+Print CSS: the page renders to PDF correctly (via browser "Save as PDF"). Nav and interactive chrome hide under `@media print`; tables scroll properly; sections marked with `print-keep` avoid unwanted page breaks.
 
-### Scroll-spy navigation
+## Auth and deployment
 
-`components/ActiveSection.tsx` provides client-side scroll-spy highlighting. It reads a `--header-height` CSS custom property and `scrollPaddingTop` to compute which section is currently visible as the user scrolls.
+The site is password-protected via middleware (`middleware.ts`). Set environment variables:
+- **`SITE_AUTH_SECRET`** — Secret key for signing access tokens (≥16 chars)
+- **`SITE_PASSWORD`** — The site password (compared via timing-safe HMAC)
 
-## Authentication and Environment Variables
-
-The site is protected by a password-authenticated access gate. Unauthenticated users are redirected to `/login`.
-
-**How it works:**
-- `middleware.ts` gates all routes (except static assets) behind a signed, timestamped cookie (`ACCESS_COOKIE = "site_access"`).
-- `lib/auth.ts` provides HMAC-SHA256 signed tokens and password comparison with timing-safe comparison to prevent timing attacks.
-- `app/api/login/route.ts` validates the password, rate-limits by IP (8 failed attempts per 15 minutes), and sets the access cookie.
-
-**Required environment variables:**
-- `SITE_AUTH_SECRET` — Secret key for signing access tokens. Must be at least 16 characters. If missing or too short, authentication is disabled.
-- `SITE_PASSWORD` — The site password. Hashed comparison is performed via HMAC.
-
-If either env var is missing or `SITE_AUTH_SECRET` is less than 16 characters, the auth system is treated as unconfigured and the middleware will not enforce access restrictions.
-
-**Important note:** Rate-limiting is in-process and resets on application restart. It is not suitable for distributed deployments without additional backing store. IP detection uses `x-forwarded-for` (forwarded) then `x-real-ip` headers.
-
-## Print and PDF
-
-The proposal is designed to be printed or saved as PDF from the browser. Navigation and the quote switcher are hidden via CSS when printing (using `@media print`). This affects component and styling decisions — do not hide these elements via display properties that could be overridden by print styles.
+Rate-limiting is in-process (not suitable for multi-instance deploys without a backing store).
 
 ## Stack
 
-- **Framework**: Next.js 15 (App Router), React 19
-- **Language**: TypeScript (strict mode)
+- **Framework**: Next.js 15 (App Router) with React 19
+- **Content**: MDX via `next-mdx-remote/rsc` (server-side compiled)
 - **Styling**: Tailwind CSS 4 with PostCSS
-- **Markdown parsing**: `gray-matter` (frontmatter), `react-markdown` + `remark-gfm` (rendering)
-- **Icons**: Lucide React
-- **Analytics** (production): Vercel Analytics + Speed Insights
+- **Markdown**: GFM tables, strikethrough, autolinks (via `remark-gfm`)
+- **Type safety**: TypeScript (strict mode)
 
 ## Type definitions
 
-Key types are defined in `lib/types.ts`:
-- `Quote` — A parsed quote file with slug, frontmatter, and rendered content
-- `QuoteMeta` — Quote metadata (without the body content)
-- `QuoteFrontmatter` — The YAML frontmatter fields
-- `NavItem` — Navigation entry with child links
-- `ProposalType` — `"rebuild"` | `"retool"`
+Key types in `lib/content-schema.ts`:
+- `SectionFrontmatter` — Minimal shape (title, optional kicker, layout, tone)
+- `QuoteFrontmatter` — Extended (adds proposalType, price, hours, days, status, comparison, outcomes)
+- `Section` — Parsed section with compiled MDX content
+- `Quote` — Parsed quote with compiled MDX content and derived `recommended` flag
+
+## Testing the build locally
+
+```bash
+npm run build        # Validates all content and config at build time
+npm run dev          # Start dev server; hot-reload on content changes
+npm run lint         # Type check and lint
+```
+
+Heading anchors work automatically — the page auto-derives section IDs from content slugs, and heading IDs are scoped per-section to avoid collisions. Print export (browser "Save as PDF") works via CSS media queries.
