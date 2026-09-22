@@ -1,0 +1,99 @@
+---
+title: "Magento improvement programme"
+shortTitle: "Magento"
+platform: "Improvement programme"
+price: 44100
+priceDisplay: "£44,100 + VAT"
+hours: 472.5
+days: 63
+status: "Improvement programme"
+summary: "A focused programme to improve the existing customer experience and extend the useful life of Magento while deferring broader structural changes."
+order: 3
+proposalType: retool
+outcomes:
+  - Complete frontend redesign
+  - Algolia-powered search
+  - Improved customer relationships and permissions
+  - Platform stabilisation and bug fixing
+  - Improved CMS flexibility
+---
+
+The Magento improvement programme represents a different level of investment to the Vendure and Shopify rebuilds and should not be viewed as a lower cost route to the same end result.
+
+This option would retain the existing Magento platform and focus investment on a defined set of improvements to the areas creating the greatest friction for Verona and its customers. It is intended to improve the existing service and extend its useful life without the cost and disruption of replacing the underlying platform.
+
+This could be the right approach if Verona’s priority is to make meaningful improvements now while keeping the initial investment lower. However, the existing architecture and its underlying constraints would remain in place.
+
+## What this programme would deliver
+
+### Included
+
+The programme would focus on the agreed improvements within the detailed estimate, including enhancements to the existing customer experience, product discovery, content and identified areas of the current Magento platform.
+
+It would also include remediation of an agreed list of existing defects. These will be documented before development begins with clear acceptance criteria so that both teams have an agreed definition of what has been included and when each item is complete.
+
+### Limited
+
+Some of the wider objectives for the new portal may be achievable within Magento, but only within the constraints of the existing platform and architecture.
+
+This means areas such as customer relationships, account functionality, commercial rules and new ordering processes would be more limited than under a full rebuild. Where an improvement requires significant changes to the underlying platform, we would agree whether it remains appropriate within this programme before proceeding.
+
+### Not included
+
+The £44,100 estimate does not include delivering the complete bespoke housebuilder, contractor and development model proposed within the full rebuild.
+
+It also does not include extensive new commercial rules, major new order workflows or wholesale changes to the underlying Magento architecture unless they are specifically identified within the agreed scope.
+
+The programme should therefore be considered an investment in improving the existing platform, rather than delivering the same end state as the Vendure or Shopify options.
+
+## Existing issues and scope control
+
+The existing platform has evolved over a number of years, so it is possible that development work will expose underlying issues that are not currently known.
+
+The programme will not include an open-ended commitment to resolve every historic or newly discovered Magento issue. Before work begins, we will agree the known defects included within the scope and the acceptance criteria for each.
+
+If additional underlying issues are identified during development, we will document them, explain their impact and agree any additional work with Verona before proceeding. This keeps the programme commercially controlled while still giving the team a practical route for dealing with issues as they arise.
+
+## Future reuse
+
+Where practical, we will structure design, content and search improvements so they can inform or potentially be reused within a future rebuild.
+
+However, because this option retains Magento, some development will inevitably be specific to the existing platform and would need to be replaced if Verona later moves to Vendure, Shopify or another platform.
+
+For this reason, we would recommend the Magento improvement programme where Verona intends to retain the existing platform for the medium term, rather than treating it as the first phase of an already planned rebuild.
+
+## Tasks & estimates
+
+| Task | Note | Hours |
+|---|---|---:|
+| UI design & design system | Complete redesign of the public website and authenticated trade portal, creating a lighter and more contemporary visual system aligned with the Verona brand. | 37.5 |
+| Magento frontend redevelopment | Rebuild/refactor the Magento frontend and key templates, including navigation, homepage, catalogue, product pages, account areas, basket and responsive behaviour. | 112.5 |
+| CMS & page builder improvements | Review and improve Magento content-management capabilities so Verona can make more day-to-day page, banner and promotional changes without developer support. | 45 |
+| Algolia search implementation | Implement Algolia product search including indexing, relevance configuration, autocomplete, typo tolerance, synonyms, filters and customer-aware product visibility where applicable. | 37.5 |
+| Customer relationship improvements | Review and improve Magento customer/account relationships, customer groups, branches, permissions and associated business rules to better support Verona’s different customer audiences. | 75 |
+| Customer-specific catalogue & pricing improvements | Rationalise existing customer-group logic around product visibility, pricing and available functionality. Fix known inconsistencies and improve maintainability. | 30 |
+| Customer account improvements | Improve the authenticated portal experience including account navigation, order information, stock/pricing presentation and commonly used self-service functionality. | 22.5 |
+| Performance, accessibility & security | Frontend performance improvements, accessibility remediation, security review and hardening of affected custom Magento functionality. | 30 |
+| Analytics & tracking | Review and update GA4, GTM and ecommerce/behavioural tracking as part of the new frontend implementation. | 7.5 |
+| QA & UAT | Regression, integration, responsive, browser and account-type testing, plus support throughout Verona UAT. | 30 |
+| Project management | Client communication, planning, reviews, coordination and delivery management throughout the project. | 30 |
+| Deployment & post-launch support | Production deployment, cache/index management, release verification and immediate post-launch support. | 15 |
+| **Total Hours** |  | **472.5** |
+
+## Total cost
+
+| Item | Figure |
+| --- | ---: |
+| Total days @ 7.5 hours per day | 63 |
+| Day rate | £700 |
+| **Total** | **£44,100 + VAT** |
+
+## Delivery approach
+
+Unlike the Vendure Core and Shopify Plus rebuild options, we would not recommend splitting this Magento improvement programme into a separate MVP and later phases.
+
+The scope is already a focused improvement programme rather than a full platform transformation. Formal phasing would add planning overhead without meaningfully reducing delivery risk, and would delay the customer-facing improvements that justify the work.
+
+We would instead deliver the programme as a sequence of sprints, treating it as a period of continuous improvement against a defined backlog.
+
+Design, frontend redevelopment, search, customer and account work, bug fixing and CMS improvements would be sequenced so that visible progress is made throughout, with regular reviews and the ability to adjust priority as Verona sees the work in progress.

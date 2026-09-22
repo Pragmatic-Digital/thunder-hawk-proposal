@@ -1,0 +1,79 @@
+---
+title: "Vendure Core"
+shortTitle: "Vendure Core"
+platform: "Vendure Core + Next.js"
+price: "£116,200 + VAT"
+hours: 1245
+days: 166
+status: "Recommended"
+summary: "A Vendure Core and Next.js rebuild of the Magento trade portal, modelled around Verona’s customer groups, commercial rules and Orderwise integration."
+order: 1
+proposalType: rebuild
+---
+
+## Overview
+
+This project will deliver a new digital platform for Thunder Hawk, replacing the existing Magento trade portal with a more flexible, scalable and user-friendly solution built around Vendure Core and a modern React/Next.js frontend.
+
+The new platform will support Verona’s growing range of customer groups, including independent retailers, housebuilders, contractors, merchants, key accounts and end users, while providing each audience with a tailored experience based on their account, permissions, catalogue, pricing and commercial rules.
+
+A key focus of the project will be improving product discovery and customer self-service. The new site will provide significantly improved search and filtering, richer product information, real-time stock visibility, customer-specific pricing and catalogues, order history, invoices, delivery tracking, downloadable resources and account management functionality.
+
+Effective search is a particularly important requirement and is consistently identified across the workshop outputs as one of the biggest frustrations with the existing platform.
+
+The platform will integrate closely with Orderwise, which will remain the primary operational source of truth for products, customers, pricing, stock, account information and order processing. The new solution will use this data to create a more intuitive digital experience while reducing manual administration and improving the accuracy and speed of customer interactions.
+
+A major part of the new solution will be the development of a flexible customer and account model. This will support organisations, branches, multiple users, roles and permissions, as well as more complex relationships between housebuilders, contractors and individual developments. This will allow Verona to control which products, prices, delivery options and functionality are available depending on the customer and purchasing context.
+
+For customer groups that do not currently place orders online, such as merchants and key accounts, the platform will also provide a dedicated self-service information portal. These users will be able to access relevant product information, stock, pricing, order history, invoices, tracking information and customer-specific resources, helping to reduce reliance on Verona’s sales support team.
+
+The public-facing website will also be redesigned to better represent Thunder Hawk as a whole. It will introduce a stronger group-level presence, clearer navigation between divisions and a more modern, design-led experience for both trade customers and end users. Verona has specifically identified the need for a lighter, more contemporary design and for important areas such as search, login and new products to be more prominent.
+
+The project can be delivered using a phased approach, with the core platform and highest-value customer journeys forming the initial release, followed by more advanced functionality where appropriate. The commercial implications of that phasing, including the share of investment required in Phase 1, are set out in [Phasing](#phasing).
+
+Overall, the objective is to create a single, future-ready digital ecosystem that improves customer experience, reduces manual administration, gives Verona greater control over content and commercial rules, and provides a stronger technical foundation for future growth.
+
+## Tasks & estimates
+
+| Task | Development notes | Hours |
+| --- | --- | ---: |
+| UI design & design system | New responsive design system aligned with the Verona brand, including public site, product catalogue, account areas and commerce interfaces. | 37.5 |
+| Next.js storefront development | Build the responsive public website and authenticated application frontend, including reusable components, navigation and core templates. | 75 |
+| CMS & page builder | Implement self-service content management for landing pages, content blocks, banners, news, campaigns and promotional content. | 37.5 |
+| Thunder Hawk / division architecture | Implement the group level website structure and navigation between Verona divisions and relevant existing microsites, including a landing page. | 15 |
+| Vendure Core implementation | Configure and extend Vendure Core as the core commerce/application layer, including channels, products, customers, orders and custom entities. | 75 |
+| Customer & organisation account model | Build support for organisations, accounts, branches, multiple users and relationships between customer entities. | 37.5 |
+| User roles & permissions | Configurable user access to stock, pricing, credit information, ordering, resources and account functionality based on role. | 22.5 |
+| Housebuilder / contractor / development model | Implement housebuilder, contractor and development relationships, including contractors operating across multiple housebuilders/projects. | 105 |
+| Customer-specific catalogues | Control product/range visibility by channel, customer, account/organisation. | 22.5 |
+| Pricing & commercial rules | Customer-specific pricing, price lists, payment terms, promotions and other account-level commercial rules. | 30 |
+| Core Orderwise integration | Integrate products, SKUs, customers, addresses, pricing, credit information, stock levels and future availability from Orderwise via API. | 75 |
+| Orderwise order integration | Submit ecommerce orders to Orderwise and implement validation, status handling, retry/error management and reconciliation. | 30 |
+| Orders, invoices & account data integration | Complete order history, invoices, account information, and other Orderwise account data where API support allows. Orderwise API will become source of truth. | 75 |
+| Product search & filtering | Fast catalogue search across SKU, product name and attributes, with autocomplete, fuzzy matching, synonyms and faceted filtering. Implement Algolia AI and synonym search. | 37.5 |
+| Product catalogue & PDP | Product listing/detail functionality including technical attributes, imagery, stock, availability, pricing, downloads and customer-specific information. | 37.5 |
+| Basket & checkout | Custom Vendure Core checkout supporting box quantities, account purchasing, proforma/card customers, addresses and customer-specific rules. | 75 |
+| Advanced order management | Amend existing orders where supported, reorder, saved baskets, quick ordering, back orders and related order workflows. | 37.5 |
+| Delivery rules & scheduling | Customer-specific delivery methods, charges, lead times, saved/project addresses, scheduling and forward-order functionality. | 75 |
+| Resource / information centre | Customer-specific brochures, price lists, technical documents, installation information, training resources and other downloads. | 37.5 |
+| Merchant portal | Tailored informational portals for major clients such as Wickes, Selco, Jewson and Travis Perkins, including stock, pricing, orders, resources and customer-specific content. | 60 |
+| Stockist locator | Replace/rebuild the public “Where to Buy” functionality with postcode/location search and relevant retailer information. | 22.5 |
+| Delivery tracking | Integrate delivery-tracking functionality, including delivery statuses and POD where supported, subject to API availability. | 30 |
+| Stripe integration | Card payment integration through Vendure Core, including payment handling and associated checkout states. | 22.5 |
+| Data & content migration | Migrate required Magento/Orderwise customer/content/application data, subject to confirmation of what historical information needs retaining. | 37.5 |
+| Analytics & tracking | GA4, GTM and required behavioural analytics configuration, including ecommerce events. | 15 |
+| Accessibility, performance & security | WCAG implementation/testing, performance optimisation, security hardening, permission testing and relevant non-functional requirements. | 30 |
+| QA & UAT | Functional, integration, regression, responsive and cross-browser testing plus support through Verona UAT. | 37.5 |
+| Project management | Technical/client management, sprint planning, reviews, coordination, reporting and delivery management throughout the project. | 37.5 |
+| Hosting, deployment & DevOps | AWS/Cloudflare environments, CI/CD, staging/production configuration, logging, backups and monitoring. | 15 |
+| **Total** | | **1,245** |
+
+## Total cost
+
+| Item | Figure |
+| --- | ---: |
+| Total days @ 7.5 hours per day | 166 |
+| Day rate | £700 |
+| **Total** | **£116,200 + VAT** |
+
+Indicative allocations of this estimate across delivery phases are set out in [Phasing](#phasing).
