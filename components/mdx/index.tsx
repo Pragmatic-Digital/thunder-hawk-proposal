@@ -1,5 +1,6 @@
 import type { ReactNode, ComponentType } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type MDXComponents = Record<string, ComponentType<any> | React.ElementType | ((props: any) => ReactNode)>;
@@ -158,7 +159,11 @@ export function SectionRenderer({
         )}
 
         <div className="proposal-prose mt-8 sm:mt-10">
-          <MDXRemote source={content} components={components} />
+          <MDXRemote
+            source={content}
+            components={components}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
 
         {children}
