@@ -1,7 +1,24 @@
+import type { ReactNode } from "react";
+
 export type MarkdownHeading = {
   id: string;
   label: string;
 };
+
+export function flattenText(children: ReactNode): string {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
+  if (Array.isArray(children)) {
+    return children.map(flattenText).join("");
+  }
+  if (children && typeof children === "object" && "props" in children) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const props = (children as any).props;
+    return flattenText(props?.children);
+  }
+  return "";
+}
 
 export function slugifyHeading(text: string) {
   return text

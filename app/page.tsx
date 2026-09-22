@@ -1,4 +1,3 @@
-import { Benefits } from "@/components/Benefits";
 import { Conclusion } from "@/components/Conclusion";
 import { CostSavings } from "@/components/CostSavings";
 import { Delivery } from "@/components/Delivery";
@@ -12,6 +11,7 @@ import { QuoteComparison } from "@/components/QuoteComparison";
 import { QuoteOptions } from "@/components/QuoteOptions";
 import { QuoteSection } from "@/components/QuoteSection";
 import { WhyPragmatic } from "@/components/WhyPragmatic";
+import { BenefitsSection } from "@/components/BenefitsSection";
 import { getMarkdownPage } from "@/lib/pages";
 import {
   getQuotes,
@@ -21,13 +21,15 @@ import {
   toQuoteMeta,
 } from "@/lib/quotes";
 import { scopeAndPricing } from "@/lib/site";
+import { getSectionData } from "@/lib/render-section";
 
-export default function HomePage() {
+export default async function HomePage() {
   const quotes = getQuotes();
   const metas = quotes.map(toQuoteMeta);
   const rebuildQuotes = getRebuildQuotes(quotes);
   const retoolQuotes = getRetoolQuotes(quotes);
   const phasing = getMarkdownPage("phasing");
+  const benefitsSection = await getSectionData("benefits");
 
   return (
     <ProposalShell quotes={metas} sectionIds={getSectionIds(metas)}>
@@ -36,7 +38,7 @@ export default function HomePage() {
         <QuoteOptions quotes={metas} />
         <QuoteComparison quotes={metas} />
         <WhyPragmatic />
-        <Benefits />
+        <BenefitsSection section={benefitsSection} />
         <ProposalGroup
           id="scope-and-pricing"
           kicker={scopeAndPricing.kicker}
