@@ -7,7 +7,19 @@ import {
   safeRedirectPath,
 } from "@/lib/auth";
 import { clearLoginFailures, getLoginLock, recordLoginFailure } from "@/lib/rate-limit";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
+
+function getRequestUrl(request: Request): URL {
+  const nextRequest = request as NextRequest;
+  const proto = nextRequest.headers.get("x-forwarded-proto") || "https";
+  const host = nextRequest.headers.get("x-forwarded-host") || nextRequest.headers.get("host");
+  const url = new URL(request.url);
+  if (host) {
+    url.protocol = `${proto}:`;
+    url.host = host;
+  }
+  return url;
+}
 
 export async function POST(request: Request) {
   const form = await request.formData();
@@ -38,7 +50,7 @@ export async function POST(request: Request) {
   }
 
   clearLoginFailures(key);
-  const response = NextResponse.redirect(new URL(next, request.url), 303);
+  const response = NextResponse.redirect(new URL(next, getRequestUrl(request)), 303);
   response.cookies.set(ACCESS_COOKIE, await createAccessToken(secret), accessCookieOptions());
   response.headers.set("Cache-Control", "private, no-store");
   response.headers.set("X-Robots-Tag", "noindex, nofollow");
@@ -55,7 +67,7 @@ function clientKey(request: Request) {
 }
 
 function redirectToLogin(request: Request, next: string, error: string) {
-  const loginUrl = new URL("/login", request.url);
+  const loginUrl = new URL("/login", getRequestUrl(request));
   loginUrl.searchParams.set("error", error);
   if (next !== "/") {
     loginUrl.searchParams.set("next", next);

@@ -3,16 +3,16 @@ import type { ProposalConfig } from "@/lib/config-schema";
 const config: ProposalConfig = {
   site: {
     agency: "Pragmatic Digital",
-    client: "Client Name",
-    proposalLabel: "Client Name Digital Platform Proposal",
+    client: "Thunder Hawk",
+    proposalLabel: "Thunder Hawk Digital Platform Review",
     prepared: "September 2026",
     email: "hello@pragmaticdigital.co.uk",
     phone: "0113 534 9949",
     address: "Mabgate Business Centre, 93–99 Mabgate, Leeds LS9 7DR",
-    gtmId: "GTM-KZ4QZP7L",
+    // gtmId: "GTM-KZ4QZP7L",
     robotsIndex: false,
     description:
-      "A technical and commercial proposal for the Client Name digital platform redesign, presenting Vendure Core, Shopify Plus, and Magento improvement options.",
+      "Initial review and discovery findings following our audit of Thunder Hawk's digital platform, with ideas and recommendations to discuss.",
   },
   theme: {
     colorPage: "#f3efe8",

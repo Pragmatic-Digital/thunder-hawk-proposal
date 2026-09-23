@@ -14,7 +14,7 @@ export function getAuthSecret(): string | null {
 export function accessCookieOptions() {
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === "production" || process.env.FORCE_SECURE_COOKIES === "true",
     sameSite: "lax" as const,
     path: "/",
     maxAge: ACCESS_MAX_AGE,

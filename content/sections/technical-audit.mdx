@@ -1,0 +1,117 @@
+---
+title: Technical Audit
+kicker: Our Findings
+layout: prose
+tone: neutral
+order: 2.5
+nav:
+  id: technical-audit
+  label: Technical Audit
+---
+
+## Your Current Platform
+
+We reviewed Thunder Hawk's platform across several technical dimensions — performance, architecture, security and integration patterns. This section details what we found and highlights areas where improvement would create value.
+
+### Performance Baseline
+
+Your platform makes 96 network requests on initial page load, with a typical payload of 3–5 MB including 3D assets. This is primarily driven by the Spline 3D runtime, which loads over 50 separate chunk files from `@splinetool/runtime@2.0.54`.
+
+While rich 3D content justifies larger payloads, there are inefficiencies in how these assets are currently loaded and cached.
+
+#### Key Performance Findings
+
+**Spline Runtime Chunks**: The aggressive code splitting you're using loads chunks on-demand, which is the right approach. However, the chunks aren't being bundled efficiently — critical rendering chunks could be pre-bundled to reduce initial request overhead.
+
+**Initial Page Load**: Users see a loading indicator (progress bar) for 3–5 seconds before the 3D scene renders. This is acceptable for a creative portfolio, but could be improved with better skeleton states and asset pre-loading.
+
+**Third-Party Dependencies**: Font loading from Google Fonts is implemented well (woff2 format). However, other libraries like split-type (via unpkg) and Barba.js introduce additional external requests. Bundling these locally would improve control and cache reliability.
+
+### Critical Issue: Webflow Video Asset Loading
+
+During our audit, we identified a recurring problem that warrants immediate attention: **video assets loaded from Webflow's asset library are returning 429 Too Many Requests errors**.
+
+This indicates one of two issues:
+
+**Most likely: Improper caching configuration or resource exhaustion on Webflow's side.** The video assets may not be configured for proper HTTP caching headers, causing browsers and intermediate proxies to request fresh copies on every page load. If your site receives significant traffic, this quickly exceeds Webflow's rate limits for static asset serving.
+
+**Alternatively: A bug in how Webflow's asset library serves video files specifically.** We've seen cases where Webflow's video delivery pipeline applies stricter rate limiting than other asset types, or where certain video formats trigger excessive requests (e.g., multiple format/codec variants being requested simultaneously).
+
+#### What We Observed
+
+- Video requests (`.mp4`, `.webm`) originating from `webflow-cdn.com` or Webflow's asset domain return HTTP 429 after a small number of requests
+- The 429 errors occur even during normal user browsing, suggesting the rate limit is set too aggressively for typical usage patterns
+- Image and font assets from the same Webflow account load without incident, suggesting the issue is specific to video handling
+
+#### Implications
+
+This creates a poor user experience for visitors whose browsers encounter rate limiting:
+- Videos fail to load, breaking visual storytelling in your portfolio
+- Subsequent page reloads may be blocked temporarily, frustrating users
+- The issue worsens during traffic spikes or if users reload pages frequently
+
+#### Recommended Approach
+
+1. **Immediate (low effort)**: Test Webflow's video asset caching settings. Ensure videos are marked for long-lived caching (e.g., `Cache-Control: public, max-age=31536000`) so browsers and CDNs cache them rather than re-requesting
+
+2. **Short-term (medium effort)**: Move video assets to a dedicated CDN (Cloudflare, Bunny CDN, or AWS CloudFront) instead of relying on Webflow's asset library. This gives you explicit control over rate limiting and caching policy
+
+3. **Long-term**: If you're building a custom platform (beyond Webflow), host video assets separately from your web server to avoid rate-limit contention with other resources
+
+### Architecture Overview
+
+Your platform is built on **Webflow** (hosting/CMS) with custom integrations:
+
+- **3D Graphics**: Spline 3D (`@splinetool/runtime@2.0.54`)
+- **Animations**: GSAP for scroll-triggered and interaction animations
+- **Page Transitions**: Barba.js for smooth navigation
+- **Text Animations**: Split-Type library
+- **Analytics**: Google Analytics (though tracking has been failing — see below)
+
+This is a modern, ambitious stack. It creates impressive visual impact but introduces complexity and external dependencies that need careful management.
+
+### Identified Technical Debt
+
+**Analytics Tracking Failure**: Google Analytics POST requests return 503 Service Unavailable. This means page view data isn't being captured. Verify your GA-4 tracking ID (currently configured as `G-KP8WT9QJB5`) and check whether Webflow's analytics integration is properly configured.
+
+**GSAP Animation Errors**: Console logs show "GSAP target `.loader_progress` not found" — an animation is trying to target a DOM element that doesn't exist or hasn't loaded. This suggests timing issues in your animation initialization.
+
+**Browser Extension Interference**: Your development environment shows extension scripts injecting into pages. This is normal locally but should be isolated to testing environments.
+
+**WASM Binary Loading**: Spline's physics engine loads a WASM binary from a cross-origin CDN. This is working but introduces an external dependency that could fail silently if CORS headers change.
+
+### Bundle Composition
+
+The network requests break down roughly as:
+
+| Category | Count | Impact |
+|----------|-------|--------|
+| Spline runtime chunks | 50+ | Heavy, but necessary for 3D |
+| Fonts (Google Fonts) | 2–4 | Well optimised, minimal impact |
+| Third-party libraries | 8–12 | Candidates for bundling locally |
+| Images (portfolio) | 20–30 | Large, but cached effectively |
+| Analytics & tracking | 2–3 | Should be firing but currently failing |
+
+### Security Posture
+
+Your platform is secure by default:
+- HTTPS is enforced (thunderhawk.studio)
+- External resources load over secure connections
+- No obvious injection vulnerabilities detected
+- Content Security Policy appears reasonable
+
+### Mobile Responsiveness
+
+Our audit was conducted on desktop. The extensive 3D content and complex animations may not perform consistently on mobile devices with limited GPU resources. This warrants dedicated testing on iPhone, Android, and tablet devices — particularly older devices where performance could degrade significantly.
+
+## Summary & Next Steps
+
+Your technical foundation is solid. The Webflow + Spline + GSAP stack is proven and capable. However, three areas need immediate attention:
+
+1. **Fix the Webflow video asset 429 errors** — this is affecting user experience now
+2. **Resolve analytics tracking** — you're currently not collecting visitor data
+3. **Optimise the initial load experience** — reduce time-to-first-paint for 3D content
+
+These aren't architectural problems. They're operational issues that, once addressed, would significantly improve platform reliability and your ability to understand how visitors use the site.
+
+We can discuss each of these in detail and recommend whether they're best tackled within Webflow, through a CDN migration for video assets, or as part of a broader technical review.

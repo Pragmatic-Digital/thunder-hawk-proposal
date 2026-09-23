@@ -1,6 +1,13 @@
 import { ACCESS_COOKIE, isValidAccessToken, safeRedirectPath } from "@/lib/auth";
 import { NextResponse, type NextRequest } from "next/server";
 
+function getRequestUrl(request: NextRequest): URL {
+  const proto = request.headers.get("x-forwarded-proto") || request.nextUrl.protocol.slice(0, -1);
+  const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
+  if (!host) return request.nextUrl;
+  return new URL(`${proto}://${host}${request.nextUrl.pathname}${request.nextUrl.search}`);
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get(ACCESS_COOKIE)?.value;
@@ -9,7 +16,7 @@ export async function middleware(request: NextRequest) {
   if (pathname === "/login" || pathname === "/api/login") {
     if (authenticated && request.method === "GET") {
       const next = safeRedirectPath(request.nextUrl.searchParams.get("next"));
-      return withSecurityHeaders(NextResponse.redirect(new URL(next, request.url)));
+      return withSecurityHeaders(NextResponse.redirect(new URL(next, getRequestUrl(request))));
     }
 
     return withSecurityHeaders(NextResponse.next());
@@ -19,7 +26,7 @@ export async function middleware(request: NextRequest) {
     return withSecurityHeaders(NextResponse.next());
   }
 
-  const loginUrl = new URL("/login", request.url);
+  const loginUrl = new URL("/login", getRequestUrl(request));
   const next = `${pathname}${request.nextUrl.search}`;
   if (next && next !== "/") {
     loginUrl.searchParams.set("next", next);

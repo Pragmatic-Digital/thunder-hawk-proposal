@@ -102,11 +102,19 @@ export function createMDXComponents(idPrefix?: string, tone: "default" | "invert
     tr: TableRow,
     th: TableHeaderCell,
     td: TableCell,
-    a: ({ href, children }) => (
-      <CtaLink href={href || "#"} variant="secondary">
-        {children}
-      </CtaLink>
-    ),
+    a: ({ href, children }) => {
+      const isExternal = href && (href.startsWith("http://") || href.startsWith("https://"));
+      return (
+        <a
+          href={href || "#"}
+          className="text-sage-deep hover:text-sage underline transition-colors"
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+        >
+          {children}
+        </a>
+      );
+    },
     img: ({ src, alt, title }) => (
       <Figure src={src || ""} alt={alt || ""} title={title} aspect="16:9" />
     ),

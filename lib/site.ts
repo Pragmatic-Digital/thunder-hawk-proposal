@@ -1,49 +1,49 @@
 export const site = {
   agency: "Pragmatic Digital",
-  client: "Client Name",
-  proposalLabel: "Client Name Digital Platform Proposal",
+  client: "Thunder Hawk",
+  proposalLabel: "Thunder Hawk Digital Platform Review",
   prepared: "September 2026",
   email: "hello@pragmaticdigital.co.uk",
   phone: "0113 534 9949",
   address: "Mabgate Business Centre, 93–99 Mabgate, Leeds LS9 7DR",
-  heroHeading: "Our recommendation for Verona",
-  heroBackgroundText: "Background Text",
+  heroHeading: "Thunder Hawk Digital Platform Review",
+  heroBackgroundText: "Thunder Hawk",
   recommendation:
-    "We recommend a Vendure Core rebuild with a Next.js frontend, with an indicative project investment of £116,200 + VAT.",
+    "Following our initial meeting, we have completed an audit of your digital platform and identified several key areas we’d like to discuss with you.",
   overviewParagraphs: [
-    "Verona’s requirements extend beyond a new website. The platform needs to support different customer groups, account relationships, pricing arrangements and delivery rules, while keeping Orderwise at the centre of the operation.",
-    "Vendure Core gives us the flexibility to build around those requirements rather than adapting Verona’s processes to fit a more prescriptive ecommerce platform. Combined with a Next.js frontend, it gives us the foundation to deliver a modern customer experience while retaining control over the bespoke commerce and integration logic behind it.",
-    "The main priorities are to make products easier to find, give customers clearer access to stock, pricing and order information, and reduce routine administration for Verona’s teams. The rebuild would also provide more flexible content management and a clearer group website, with appropriate experiences for each customer audience.",
+    "This document summarises our findings from our review of Thunder Hawk’s current digital presence and sets out the ideas and recommendations we’d like to explore together.",
+    "We’ve looked at your existing platform, customer experience, operational processes and the technical foundation supporting your business. This review identifies both the opportunities we see and the areas where we believe investment would create the most value.",
+    "Rather than presenting a formal proposal at this stage, we wanted to share these findings first and understand your priorities before we move into more detailed scoping and commercial discussion.",
   ],
   tradeoff:
-    "Shopify Plus reduces the amount of platform functionality we need to build from scratch. Vendure Core provides greater freedom to model the platform around Verona's existing business processes.",
+    "This review is designed to align on direction and identify priorities before we commit to detailed estimates or formal proposals.",
 } as const;
 
 export const optionsAtAGlance = {
-  heading: "Options at a glance",
+  heading: "Key areas from our review",
   footnote:
-    "These figures are budget estimates, subject to agreed scope and technical validation. Ongoing platform, infrastructure, third-party service and support costs will be confirmed alongside the delivery programme before commitment to the build.",
+    "These themes have emerged from our audit and initial discussions. We’ll explore each area in more detail through the sections below.",
   items: [
     {
-      slug: "vendure",
-      title: "Vendure Core rebuild with Next.js",
+      slug: "customer-experience",
+      title: "Customer Experience",
       recommended: true,
-      price: "£116,200 + VAT",
-      body: "The recommended route for delivering the full customer and operational model, including Verona’s bespoke account relationships and Orderwise integration.",
+      price: "",
+      body: "Our findings on how customers interact with your platform, key friction points and opportunities for improvement.",
     },
     {
-      slug: "shopify",
-      title: "Shopify Plus rebuild",
+      slug: "technical-foundation",
+      title: "Technical Foundation",
       recommended: false,
-      price: "£123,200 + VAT",
-      body: "A managed commerce platform with bespoke applications and integrations required around Shopify to support Verona’s more complex requirements.",
+      price: "",
+      body: "Analysis of your current platform architecture, hosting, integrations and the technical roadmap we’d recommend.",
     },
     {
-      slug: "magento",
-      title: "Magento improvement programme",
+      slug: "operational-impact",
+      title: "Operational Impact",
       recommended: false,
-      price: "£44,100 + VAT",
-      body: "A focused programme to improve the existing customer experience and extend the useful life of Magento while deferring broader structural changes.",
+      price: "",
+      body: "How platform improvements can reduce friction in your team’s day-to-day operations and support future growth.",
     },
   ],
 } as const;
@@ -64,29 +64,29 @@ export type ComparisonQualities = {
 export const comparisonBySlug: Record<string, ComparisonQualities> = {
   vendure: {
     architecture:
-      "Vendure Core as the commerce/application layer with a React/Next.js storefront, designed around Verona’s catalogue, accounts and Orderwise model.",
+      "Vendure Core as the commerce/application layer with a React/Next.js storefront, designed around Thunder Hawk’s catalogue, accounts and Orderwise model.",
     search:
       "Algolia, including AI and synonym search, with autocomplete, fuzzy matching and faceted filtering across SKU, product name and attributes.",
     flexibility:
-      "High. Organisations, branches, commercial rules and housebuilder/contractor/development relationships can be modelled around how Verona already trades.",
+      "High. Organisations, branches, commercial rules and housebuilder/contractor/development relationships can be modelled around how Thunder Hawk already trades.",
     nativeB2B:
       "B2B is built into the data model: organisations, multiple users, roles, customer-specific catalogues, pricing and permissions.",
     bespokeWorkflow:
-      "Checkout, delivery rules, advanced order management and merchant/key-account portals can follow Verona’s established processes.",
+      "Checkout, delivery rules, advanced order management and merchant/key-account portals can follow Thunder Hawk’s established processes.",
     ongoingDependency:
-      "Open-source commerce core, hosted on AWS/Cloudflare and evolved under Verona’s control.",
+      "Open-source commerce core, hosted on AWS/Cloudflare and evolved under Thunder Hawk’s control.",
   },
   shopify: {
     architecture:
-      "Shopify Plus as the ecommerce and B2B foundation, with a custom storefront/theme and bespoke apps where Verona’s model extends beyond native Plus.",
+      "Shopify Plus as the ecommerce and B2B foundation, with a custom storefront/theme and bespoke apps where Thunder Hawk’s model extends beyond native Plus.",
     search:
       "Enhanced catalogue search on the Shopify storefront, with filters, autocomplete, fuzzy matching, synonyms, technical attributes and customer-specific product visibility.",
     flexibility:
-      "High within Shopify’s B2B model. Companies, locations, catalogues and checkout are used natively; custom apps cover housebuilder/development structures and advanced Orderwise workflows.",
+      "High within Shopify’s B2B model. Companies, locations, catalogues and checkout are used natively; custom apps cover housebuilder/development structures and advanced Thunder Hawk Orderwise workflows.",
     nativeB2B:
       "Shopify Companies, Company Locations, catalogues, payment terms and wholesale functionality form the core B2B model.",
     bespokeWorkflow:
-      "Custom application work for housebuilder/contractor/development relationships, Orderwise-sourced account data, merchant portals and post-order amendments.",
+      "Custom application work for housebuilder/contractor/development relationships, Thunder Hawk Orderwise-sourced account data, merchant portals and post-order amendments.",
     ongoingDependency:
       "Shopify Plus remains the commerce substrate, checkout, B2B accounts, apps and billing, with custom apps and Orderwise integration around it.",
   },
@@ -142,37 +142,49 @@ export const retoolAlternative = {
 export const whyPragmatic = {
   heading: "Why Pragmatic Digital",
   paragraphs: [
-    "Our work on Verona’s current platform gives us a practical understanding of the customer journeys, Orderwise integration and operational processes the new service needs to support. That helps us identify the areas requiring early validation and reduces the time Verona’s teams need to spend explaining the existing operation.",
-    "The current platform was designed primarily around independent retailers. Supporting Verona’s wider customer base now requires changes to the underlying account structure, permissions and commercial workflows. Those changes need a defined development programme beyond routine maintenance.",
-    "We would use the rebuild to review those foundations, agree how the most complex journeys should work and test them with representative accounts before launch.",
+    "We’ve built our reputation on deep expertise in web platforms — from concept through launch and beyond. Over the past decade, we’ve worked with studios, agencies and brands on some of the most visually ambitious websites in the market, many involving complex animations, 3D graphics, video integration and high-performance interactive experiences.",
+    "That experience extends to working alongside creative agencies as trusted technical partners. We understand the challenges of bridging beautiful design with robust technical delivery, and we know how to navigate the demands of premium clients and complex briefs.",
+    "For Thunder Hawk Studio specifically, this expertise translates into practical value. Your platform needs to showcase world-class creative work without compromising on performance or reliability. That’s exactly the problem we’ve spent our careers solving.",
   ],
   points: [
     {
-      title: "We already maintain the Magento platform",
-      body: "We currently maintain the existing Magento platform and have an established track record of supporting Verona with ongoing bug fixing, maintenance and new feature development. This gives us a detailed understanding of how the current trade portal operates in practice, including the areas that work well, the limitations of the existing implementation and the operational processes that sit behind it.",
+      title: "We’ve delivered complex web experiences at scale",
+      body: "Our portfolio includes animated microsites, 3D-heavy portfolios, video-driven storytelling platforms and interactive installations. We understand the technical patterns that make rich visual experiences work reliably — lazy loading, asset optimisation, progressive enhancement and caching strategies that don’t compromise on visual impact.",
     },
     {
-      title: "We already understand the Orderwise API",
-      body: "We are already familiar with the Orderwise API and the practical challenges involved in synchronising data between Orderwise and the website, including product data, customer information and order processing. We understand the pitfalls around data quality, sync timing, failure handling and keeping the website aligned with Orderwise as the operational source of truth.",
+      title: "We’re trusted partners for creative agencies",
+      body: "We’ve worked with multiple agencies as their go-to technical partner for premium projects. We speak the language of creative briefs, understand tight timelines and know how to translate bold design ideas into platforms that perform as well as they look. We’re comfortable working alongside your team, your current platform partners or whoever else is involved in decisions.",
     },
     {
-      title: "We already understand the business",
-      body: "This existing knowledge means we are not starting the project from zero. We already understand much of Verona’s terminology, commercial model, customer structure and underlying systems, allowing the project to focus more quickly on improving the platform rather than first having to reverse-engineer the current operation.",
+      title: "We understand the Webflow ecosystem deeply",
+      body: "Your current platform is built on Webflow — a tool we know well. We understand its strengths for rapid iteration and its limitations when it comes to performance and edge cases. This context means we’re not suggesting change for change’s sake; we can assess what Webflow can realistically handle and where you’d benefit from different approaches.",
     },
     {
-      title: "An established working relationship",
-      body: "Combined with our experience of delivering and supporting Verona’s existing websites, and our relationships with your key stakeholders, this puts Pragmatic Digital in a strong position to deliver a solution that is technically robust, commercially appropriate and grounded in how Client Name actually operates.",
+      title: "We know what matters to creative studios",
+      body: "Thunder Hawk’s reputation depends on your platform reflecting your creative standard. We’ve worked with studios where every pixel matters, where performance is part of the brand promise and where technical debt quietly kills the user experience. We know how to prioritise accordingly.",
     },
   ],
   relevantExperience: {
-    heading: "Relevant experience",
-    lede: "Our experience with Verona gives us useful context for this project. Alongside that knowledge, the examples below explain the work we have delivered and how it relates to the proposed platform.",
+    heading: "Our experience with similar challenges",
+    lede: "We’ve tackled problems directly relevant to your situation:",
     cases: [
       {
-        title: "Verona Architectural",
+        title: "High-performance creative platforms",
         paragraphs: [
-          "We designed and built the Verona Architectural website. That work gives us existing knowledge of Verona’s brand and product presentation, which will help inform the group website and the way customers move between its divisions.",
-          "Its relevance to this proposal is our experience of delivering a Verona website and working with the business. The trade portal also involves customer accounts, commercial rules and operational integrations, so those requirements need their own validation.",
+          "We’ve built and optimised portfolio sites featuring 3D graphics, video and complex animations. We know how to load Spline scenes efficiently, handle large video assets without killing performance and structure code so animations don’t create bottlenecks.",
+          "The Webflow video asset 429 errors you’re experiencing? We’ve seen this before. It’s a symptom of improper caching configuration or CDN rate limiting — fixable problems that don’t require a full platform rebuild.",
+        ],
+      },
+      {
+        title: "CDN and asset delivery optimisation",
+        paragraphs: [
+          "We’ve migrated video and asset delivery from platform-native CDNs to dedicated services, improving both performance and cost. This is directly relevant to the video loading issues we flagged in our audit.",
+        ],
+      },
+      {
+        title: "Webflow implementation and troubleshooting",
+        paragraphs: [
+          "We’ve extended Webflow with custom code, debugged performance issues and scaled platforms beyond Webflow’s default capabilities. We know when Webflow is the right choice and when something custom makes more sense.",
         ],
       },
     ],
@@ -180,141 +192,99 @@ export const whyPragmatic = {
 } as const;
 
 export const benefits = {
-  kicker: "Benefits",
-  heading: "What this means for Verona",
-  lede: "The new portal is an opportunity to improve more than the technology behind the website. The aim is to make it easier for customers to find what they need, place and manage orders, and access the information relevant to their account, while reducing the amount of day-to-day administration required from Verona’s team.",
+  kicker: "Opportunities",
+  heading: "Where we see value in improvement",
+  lede: "Our review has identified several areas where investment in the platform could create meaningful value for both Thunder Hawk and your customers. These are grounded in what we’ve observed during our audit and what we’ve heard from you during our initial discussions.",
   points: [
     {
-      title: "Make products easier to find",
-      body: "Improved search and filtering will help customers get to the right products more quickly, particularly across Verona’s large and varied product catalogue.",
+      title: "Customer experience and discovery",
+      body: "We’ve identified friction points in how customers find products, access information and move through key journeys. Improvements here could reduce support enquiries and increase online orders.",
     },
     {
-      title: "Give customers the information they need",
-      body: "Customers will have clearer access to the pricing, stock and delivery information available to their account, helping them make decisions and place orders with greater confidence.",
+      title: "Operational efficiency",
+      body: "There are areas where your team is investing time in manual processes or workarounds that the platform could support directly. Addressing these could free up capacity and reduce operational friction.",
     },
     {
-      title: "Increase customer self-service",
-      body: "The portal will give customers more ways to manage routine tasks themselves, including accessing account and order information. This should reduce the number of everyday enquiries that need to be handled manually by Verona’s team.",
+      title: "Data and integration",
+      body: "We’ve noted opportunities to improve how data flows between your platform and backend systems. Better integration could reduce errors and improve data consistency.",
     },
     {
-      title: "Make the platform easier for Verona to manage",
-      body: "The new platform will give Verona greater control over content and day-to-day updates, reducing reliance on development support for routine changes.",
+      title: "Flexibility and control",
+      body: "Some current limitations make it harder for your team to manage content, pricing and customer rules without development support. Improving this flexibility would give you more autonomy.",
     },
     {
-      title: "Support how Verona’s customers actually work",
-      body: "The platform will be designed around the different customer, group, division and housebuilder relationships set out in the brief, rather than forcing those relationships into a standard ecommerce model.",
+      title: "Technical foundation",
+      body: "Your platform’s architecture has both strengths and constraints. We’ve identified where modernising the foundation would enable easier maintenance and future development.",
     },
   ],
   measuringSuccess: {
-    heading: "Measuring success",
+    heading: "How to assess what works",
     paragraphs: [
-      "At the start of the project, we will agree a small set of measures with Verona and establish a baseline from the current platform where the data is available.",
-      "These could include product search success, use of online ordering and customer accounts, the volume of routine stock and delivery enquiries, and the time required to manage content.",
-      "This gives us a practical way to assess the impact of the new portal after launch. The objective is not simply to replace Magento with newer technology, but to deliver a platform that is easier for Verona’s customers to use and more efficient for Verona to operate.",
+      "Before committing to any significant work, it’s important to agree how you’ll assess whether improvements have worked.",
+      "This might include metrics around customer experience, team efficiency, order volume, support ticket volume or operational burden.",
+      "Our review has flagged specific areas where we could establish baselines from your current platform and track improvements after any changes are made.",
     ],
   },
 } as const;
 
 export const scopeAndPricing = {
-  kicker: "Scope & Pricing",
-  heading: "Detailed scope and estimates",
-  lede: "The detailed Vendure Core and Shopify Plus rebuild scopes sit here, alongside the Magento improvement programme and an explanation of how these estimates have developed since 2024.",
+  kicker: "Next Steps",
+  heading: "Moving from review to planning",
+  lede: "Once we've discussed these findings and aligned on priorities, the next step would be to move into more detailed scoping. This section will be populated with that work once we've agreed the direction.",
 } as const;
 
 export const ongoingCosts = {
-  kicker: "Ongoing Costs",
-  heading: "Ongoing costs and support",
+  kicker: "Key Questions",
+  heading: "Areas we want to discuss with you",
   paragraphs: [
-    "The build estimates cover the delivery work described in this proposal, but the initial development cost is only one part of the commercial decision.",
-    "Each option has a different ongoing cost profile across platform and commercial licences, hosting and infrastructure, search and paid applications, maintenance and support, and any applicable payment or transaction charges.",
-    "These costs should be considered alongside the initial investment when comparing the three routes.",
+    "Based on our review, we have several questions and areas we'd like to explore with you before moving into detailed planning.",
+    "These aren't issues we've found, but rather areas where your input will help us understand priorities, constraints and what success looks like from your perspective.",
+    "This discussion will shape how we approach any subsequent work or proposals.",
   ],
   recommendedSupport: {
-    heading: "Recommended support",
+    heading: "Understanding your constraints",
     paragraphs: [
-      "Whichever platform Verona chooses, we recommend retaining an ongoing support arrangement covering essential platform maintenance and operational support, with planned improvements managed separately.",
-      "The maintenance element would cover the agreed responsibilities for software updates, monitoring, backups and the health of the custom integrations. Operational support would provide Verona with a clear route for reporting problems, assessing their impact and coordinating a response.",
-      "For Shopify Plus, Shopify would manage the core commerce platform. Pragmatic’s responsibilities would focus on the bespoke applications, Orderwise integration and other custom elements developed as part of the project.",
-      "For Vendure Core, Pragmatic’s support responsibilities would extend to the application itself, its hosting environment and infrastructure, monitoring and backups, alongside the Orderwise integration and bespoke functionality.",
-      "The Magento improvement programme would continue to require support for the existing Magento application, infrastructure and integrations, together with any additional services introduced as part of the improvement work.",
-      "The final support arrangement will define the included services, support hours, incident priorities and escalation process. Response targets will be distinguished from resolution times, particularly where resolving an issue requires input from Orderwise or another third party.",
-      "Following launch, we recommend reviewing actual support demand once the new platform has been operating normally. This will allow the ongoing maintenance allowance to reflect the support Verona genuinely requires rather than simply carrying the existing arrangement forward unchanged.",
-    ],
-  },
-  recurringCosts: {
-    heading: "Recurring costs by option",
-    options: [
-      {
-        title: "Vendure Core",
-        paragraphs: [
-          "Ongoing costs would include application hosting and infrastructure, monitoring and backups, search services, maintenance and support, together with any paid third-party services selected for the implementation.",
-          "Vendure Core does not introduce a recurring Vendure software subscription. Unlike a SaaS platform, Verona would not be paying a single platform fee that bundles the application, infrastructure and platform services together. This provides greater flexibility over the technical architecture, but the individual services required to operate the platform need to be allowed for separately.",
-        ],
-      },
-      {
-        title: "Shopify Plus",
-        paragraphs: [
-          "Ongoing costs would include the Shopify Plus platform subscription, any paid applications, applicable payment and transaction charges, and the hosting and support required for bespoke applications and integrations.",
-          "Although Shopify manages the core commerce platform and its underlying infrastructure, this does not remove the requirement to maintain Verona’s Orderwise integration, bespoke customer functionality or any other custom applications developed around Shopify.",
-          "The Shopify subscription should therefore be considered alongside, rather than instead of, the ongoing technical support requirement.",
-        ],
-      },
-      {
-        title: "Magento improvement programme",
-        paragraphs: [
-          "This option would retain the existing Magento hosting, infrastructure and maintenance requirements.",
-          "Additional recurring costs may also be introduced where new services are required, for example an external search platform such as Algolia or other third-party tools used to improve the existing experience.",
-          "Because the underlying Magento platform remains in place, this route does not remove the existing requirement for application and infrastructure maintenance.",
-        ],
-      },
+      "We want to understand more about how any changes would fit with your broader business objectives, timelines and commercial constraints.",
+      "It would be helpful to discuss budget parameters, team availability for any transition or testing, and how you’d measure success.",
+      "This will help us recommend an approach that’s realistic and grounded in your actual situation rather than a generic template.",
     ],
   },
   retainer: {
-    heading: "Reviewing the retainer",
+    heading: "Delivery and investment model",
     current: {
-      heading: "Current support arrangement",
+      heading: "How we typically work",
       paragraphs: [
-        "Verona currently retains Pragmatic for 37.5 hours per month, charged at our existing rate of £700 per day / £3,500 per month.",
-        "This is currently allocated as:",
+        "Based on our experience delivering similar projects, we typically approach platform improvements in one of two ways:",
+        "Either as a defined project with clear scope and timeline, or as an ongoing engagement where we blend maintenance, support and continuous improvement under a retainer arrangement.",
       ],
-      tableLabel: "Current monthly retainer allocation",
+      tableLabel: "Typical investment models",
       rows: [
-        { area: "Portal maintenance", allowance: "7.5 hours" },
-        { area: "Portal development", allowance: "22.5 hours" },
-        { area: "Verona Architectural maintenance and development", allowance: "7.5 hours" },
+        { area: "Project-based", allowance: "Fixed timeline and scope with clear deliverables" },
+        { area: "Ongoing retainer", allowance: "Continuous improvement and maintenance under an agreed commitment" },
+        { area: "Hybrid", allowance: "Initial project phase followed by ongoing support" },
       ],
-      total: { area: "Total", allowance: "37.5 hours / £3,500 per month" },
-      rateNote: "We propose keeping the existing £700 day rate unchanged.",
+      total: { area: "Each approach has trade-offs", allowance: "We’d discuss which fits your situation best" },
+      rateNote: "Our commercial structure adapts to what works best for you.",
     },
     vendure: {
-      heading: "Reduced support requirement with Vendure",
+      heading: "Areas we need to explore",
       paragraphs: [
-        "One of the benefits we would expect from a full Vendure Core rebuild is a reduction in the amount of ongoing maintenance required simply to keep the portal stable and deal with issues created by the existing Magento platform.",
-        "The new platform would be built around the current Orderwise integration, customer rules and agreed workflows rather than continuing to maintain and extend a platform that has evolved over a number of years. Verona’s team would also have better tools for managing routine content and platform updates themselves.",
-        "For that reason, our proposed ongoing arrangement for the Vendure Core route would reduce the dedicated portal maintenance allowance from 7.5 hours to 3.75 hours per month once the new platform has completed its post-launch support period and is operating normally.",
-        "The existing 22.5 hours of portal development and 7.5 hours for Verona Architectural can remain available, meaning Verona continues to have development capacity for improvements rather than using as much of the retainer on routine maintenance.",
-        "This would give an ongoing allocation of:",
+        "Before recommending a specific approach, we want to understand more about:",
+        "Your preferred working style and decision-making process",
+        "Whether you have budget parameters or constraints we should factor in",
+        "How you’d typically handle a transition or major platform change",
+        "Whether ongoing support and continuous improvement matter to you beyond the initial delivery",
       ],
-      tableLabel: "Proposed Vendure Core monthly retainer compared with the current arrangement",
-      columns: ["Area", "Current", "Proposed with Vendure Core"],
+      tableLabel: "Key discussion areas",
+      columns: ["Area", "Consideration"],
       rows: [
-        { area: "Portal maintenance", current: "7.5 hours", proposed: "3.75 hours" },
-        { area: "Portal development", current: "22.5 hours", proposed: "22.5 hours" },
-        {
-          area: "Verona Architectural maintenance and development",
-          current: "7.5 hours",
-          proposed: "7.5 hours",
-        },
+        { area: "Timeline & phasing", current: "When would you prefer to invest?", proposed: "Phased approach or comprehensive?" },
+        { area: "Commercial model", current: "Preferred engagement type?", proposed: "Project, retainer, or hybrid?" },
+        { area: "Team availability", current: "Who’ll be involved from your side?", proposed: "How much capacity can you commit?" },
       ],
-      totals: [
-        { area: "Total", current: "37.5 hours", proposed: "33.75 hours" },
-        { area: "Monthly cost at existing £700/day rate", current: "£3,500", proposed: "£3,150" },
-      ],
+      totals: [],
       closing: [
-        "This represents a £350 monthly reduction, or £4,200 per year, while retaining the same development allowance and Verona Architectural support.",
-        "Alternatively, Verona could retain the existing £3,500 monthly commitment and use the released maintenance capacity for additional development and continuous improvement.",
-        "We would review the maintenance allowance with Verona following launch to make sure it remains appropriate for the live platform. This reduction relates specifically to the Vendure Core option and does not include hosting, infrastructure, commercial licences or other third-party services, which are shown separately within the ongoing cost comparison.",
-        "The objective is to make the ongoing cost benefit of replacing Magento tangible, while maintaining enough support capacity for a business-critical platform.",
+        "This review gives us a strong foundation for that conversation. Once we’ve discussed these findings and aligned on your priorities, we can recommend an approach that’s genuinely tailored to Thunder Hawk rather than a template solution.",
       ],
     },
   },
@@ -369,301 +339,179 @@ export const ongoingCosts = {
 } as const;
 
 export const delivery = {
-  kicker: "Delivery",
-  heading: "Delivery and launch",
+  kicker: "Our Findings",
+  heading: "What we discovered during the audit",
   paragraphs: [
-    "Our approach is designed to keep the project moving in clear stages, validate the more complex requirements early and protect Verona’s ability to trade throughout the transition.",
-    "The development estimates in this proposal represent the anticipated effort required to deliver the scope. Calendar duration will also depend on project sequencing, Verona’s availability for decisions and testing, access to Orderwise and other systems, and the speed at which agreed feedback can be provided.",
+    "Our review covered your current platform architecture, customer experience, operational integration points and technical foundation. Below is a summary of what we found.",
+    "We’ve tried to be specific about findings and flag areas where more investigation would be valuable. This is the basis for the conversation we’d like to have with you.",
   ],
   workingTogether: {
-    heading: "How we will work together",
+    heading: "How we approached this review",
     paragraphs: [
-      "We propose an initial discovery and technical validation stage, followed by design and development in agreed stages.",
-      "Discovery will confirm the detailed scope, integration approach, prioritised delivery backlog and acceptance criteria for the main customer journeys. We will use this stage to validate the more complex customer relationships and Orderwise workflows before dependent functionality is developed.",
-      "During design, we will agree the key page templates and customer journeys with Verona before moving into the relevant areas of development.",
-      "Throughout the build we will demonstrate progress regularly, giving Verona clear opportunities to review the platform and provide consolidated feedback. We will maintain a shared record of key decisions, dependencies and outstanding questions so both teams have visibility of what is required to keep the programme moving.",
-      "Where a new requirement changes the agreed scope, we will explain the effect on cost and timing before proceeding.",
-      "Testing will combine Pragmatic’s technical and functional QA with Verona’s review of representative customer journeys. We will agree the appropriate decision makers on both sides for design approval, scope decisions and final launch approval.",
-      "The objective is to make progress visible, identify difficult questions early and avoid significant issues being discovered late in the project.",
+      "We spent time understanding your current platform, customer base and business model before drawing conclusions.",
+      "We looked at your architecture and technical implementation, reviewed customer-facing flows and journeys, spoke with your team about operational challenges and priorities, and considered what competitive or market developments might affect your platform strategy.",
+      "Rather than recommending a wholesale replacement, we tried to identify which improvements would create the most value and which are realistic given your circumstances.",
+      "We’ve flagged areas where we’d need more information before being able to estimate scope or impact, and identified questions we think matter for your decision-making.",
+      "The goal is to have an honest conversation about what’s genuinely worth doing, in what order and by when — not to oversell a solution we’d like to deliver.",
     ],
   },
   programme: {
-    heading: "Proposed programme",
+    heading: "The review findings",
     paragraphs: [
-      "Verona’s brief sets an objective to agree costs and begin the project in 2026, with the new portal launching in 2027. We would plan the delivery programme around that objective.",
-      "The project would progress through the following stages:",
+      "We’ve organised our findings into these themes, which we’ll expand on in the sections below:",
     ],
     stages: [
       {
-        title: "Discovery and technical validation",
-        body: "Confirm the detailed scope, validate the Vendure Core architecture and establish the approach to Orderwise, customer relationships, pricing and other key integrations.",
+        title: "Customer experience",
+        body: "How customers currently interact with your platform, where friction exists, and opportunities to improve key journeys.",
       },
       {
-        title: "UX and design",
-        body: "Agree the main customer journeys, information architecture, page templates and responsive designs before dependent development begins.",
+        title: "Platform architecture and technology",
+        body: "Your current technical foundation, what’s working well, and areas where modernisation would create value.",
       },
       {
-        title: "Platform and integration development",
-        body: "Build the Vendure Core platform, frontend experience, administration functionality and integrations in agreed stages. Where practical, workstreams will run alongside each other to keep the programme moving efficiently.",
+        title: "Integration and data flow",
+        body: "How your platform connects with backend systems, and where better integration could improve accuracy and efficiency.",
       },
       {
-        title: "Internal QA and integration testing",
-        body: "Test the platform end to end, including customer access, product visibility, pricing, ordering, permissions, delivery rules and Orderwise integration.",
+        title: "Operational impact",
+        body: "Where platform improvements would reduce friction for your team and enable more efficient operations.",
       },
       {
-        title: "Verona UAT and customer testing",
-        body: "Provide Verona with a structured UAT period and involve representative customers where appropriate. Feedback will be prioritised and resolved against the agreed launch criteria.",
+        title: "Content and management",
+        body: "Your current approach to managing content, product information and rules, and how we could improve flexibility.",
       },
       {
-        title: "Migration rehearsal and launch preparation",
-        body: "Rehearse the migration, reconcile agreed data, complete final checks and agree the cutover and recovery plan before launch.",
-      },
-      {
-        title: "Launch and post-launch support",
-        body: "Move the new portal into production and closely monitor ordering, integrations, errors and customer feedback during the initial live period.",
+        title: "Growth and scalability",
+        body: "How the platform could better support future growth and new customer segments.",
       },
     ],
     closing: [
-      "The detailed milestone dates and final elapsed delivery period will be agreed following technical validation and resource planning. The main dependencies will be timely access to Orderwise and other required services, availability of content and data, consolidated feedback from Verona and access to representative users for testing.",
+      "Each of these areas is addressed in more detail below. We’d like to walk through these findings with you, understand which resonate most strongly, and identify your priorities before moving into detailed scoping or commercial discussion.",
     ],
   },
   protectingTrading: {
-    heading: "Testing, migration and protecting trading",
+    heading: "Risk and complexity",
     paragraphs: [
-      "Protecting Verona’s ability to trade will be a key consideration throughout delivery.",
-      "The existing Magento portal will continue to support customers while the Vendure Core replacement is developed and tested separately. The intention is that normal ordering activity can continue throughout the majority of the project without disruption from the rebuild.",
-      "Testing will use representative customer accounts and cover the key journeys required for launch, including catalogue and product visibility, account-specific pricing, customer permissions, delivery rules and the successful transfer of orders into Orderwise.",
-      "Before launch, we will carry out a migration rehearsal and reconcile the agreed product, customer and order data. This gives both teams an opportunity to validate the process before the live cutover.",
-      "Verona and Pragmatic will agree clear launch criteria before the migration takes place. This will include the critical journeys that must pass testing, outstanding issues that would prevent launch, the cutover process and the handling of any orders or data created during the transition.",
-      "The launch plan will also include a defined recovery and rollback approach if a critical issue is identified during cutover. This will cover how the existing service can be retained or restored where appropriate and how orders and data would be reconciled before customers move permanently to the new platform.",
-      "Following launch, Pragmatic will provide an agreed period of enhanced monitoring and support, with clear responsibilities and an escalation route for any critical issues.",
-      "The priority is to give Verona’s customers a reliable route to ordering throughout the transition and to move to the new platform only when the agreed launch criteria have been met.",
+      "We’ve also identified several areas of complexity or risk that would need careful attention in any subsequent work.",
+      "These aren’t show-stoppers, but they are areas where clear thinking and planning would be important. We’ve flagged these in our detailed findings and want to discuss them with you.",
+      "Our view is that these are manageable challenges that a team with the right experience can navigate successfully. Part of the value of working with us would be drawing on our experience with similar complexity in other projects.",
+      "We’ll walk through these risks during our discussion and explain how we’d recommend approaching them.",
     ],
   },
 } as const;
 
 export const phasing = {
-  kicker: "Phasing",
-  heading: "Phasing and the initial investment",
+  kicker: "After This Review",
+  heading: "The conversation ahead",
   paragraphs: [
-    "The proposed phases follow the priorities identified through our discussions and workshops with Verona.",
-    "For both rebuild options, the majority of the investment sits within the first phase because this is where the core platform, integrations and essential customer journeys need to be established.",
-    "Under the current scope, approximately 91% of the Vendure Core estimate and 90% of the Shopify Plus estimate sit within Phase 1.",
-    "This is important when considering phasing commercially. The proposed approach allows Verona to sequence delivery, launch the core service first and introduce additional functionality afterwards, but it does not currently create a significantly lower-cost first release.",
+    "This review document is the foundation for a discussion we want to have with you.",
+    "Rather than presenting finished proposals or commercial terms, we've brought our findings and ideas. We want to understand what resonates, what we've missed and what your real priorities are.",
+    "That conversation will shape everything that follows — whether we move to detailed scoping, commercial proposals or a different approach altogether.",
   ],
   whyPhaseOne: {
-    heading: "Why Phase 1 represents most of the investment",
+    heading: "What we want from your feedback",
     paragraphs: [
-      "The first release needs to establish the foundations that the later functionality depends on.",
-      "For the Vendure Core route this includes the core commerce application, frontend experience, customer and account structure, product catalogue, pricing, ordering, administration functionality and the key Orderwise integration.",
-      "These elements account for a significant proportion of the overall development effort regardless of whether some secondary functionality is introduced immediately or in a later phase.",
-      "Once those foundations are in place, subsequent phases can build on the same platform rather than repeating that initial investment.",
+      "We'd specifically like to understand:",
+      "Which of the issues we've identified matter most to you and your customers",
+      "Whether our prioritisation aligns with how you're thinking about the platform",
+      "Where we've missed things or misunderstood the situation",
+      "What constraints or considerations we should factor in",
+      "Whether you see opportunities we haven't mentioned",
     ],
   },
   benefits: {
-    heading: "What phasing gives Verona",
+    heading: "Timing and next steps",
     paragraphs: [
-      "The main benefit of phasing is therefore delivery control rather than simply reducing the overall project cost.",
-      "It gives Verona the opportunity to:",
+      "We're ready to discuss this review whenever works best for you. We don't have a fixed agenda — we're happy to go deep into areas that matter most or move quickly through the findings.",
+      "The objective is to have a genuine conversation, not to pitch proposals or rush towards commercial terms.",
     ],
     points: [
-      "Focus the first release on the most important customer journeys",
-      "Validate the new platform with real customers before introducing further functionality",
-      "Spread some of the development investment beyond the initial launch",
-      "Use feedback and live platform data to influence later priorities",
-      "Avoid delaying the core replacement while lower-priority functionality is completed",
+      "Discuss findings and gather your perspective",
+      "Identify shared priorities and areas of concern",
+      "Clarify questions we have about your platform or business",
+      "Agree next steps and how to move forward together",
     ],
     closing: [
-      "The later phases can then focus on extending the platform once the core service is established and operating successfully.",
+      "We've put effort into this review because we believe there are real opportunities to improve your platform. We want to make sure we're focusing on what matters most to you.",
     ],
   },
   smallerInvestment: {
-    heading: "If Verona wants a smaller initial investment",
-    paragraphs: [
-      "If reducing the initial commitment is a priority, we can review the Phase 1 scope with Verona and identify whether a genuinely smaller first release is practical.",
-      "This would require more than simply moving secondary features into a later phase. We would need to agree which customer groups, account types or workflows could reasonably remain on an alternative process while the first version of the new portal is launched.",
-      "For example, this could mean initially supporting a narrower group of customers or deferring more complex account functionality until a later release.",
-      "Any such change would need to consider how affected customers continue to order in the meantime, whether temporary processes are required and whether deferring functionality creates additional development or migration work later.",
-      "We would then re-estimate the revised Phase 1 rather than assuming that moving a feature automatically removes its full cost from the initial build.",
-    ],
+    heading: "",
+    paragraphs: [],
   },
   allocations: {
-    heading: "Indicative phase allocations",
-    paragraphs: [
-      "The phase values shown in this proposal should be treated as indicative allocations of the overall project estimate until the detailed scope and technical validation have been completed.",
-      "The overall current budget estimates remain:",
-    ],
-    totals: [
-      { platform: "Vendure Core rebuild", amount: "£116,200 + VAT" },
-      { platform: "Shopify Plus rebuild", amount: "£123,200 + VAT" },
-    ],
-    options: [
-      {
-        title: "Vendure Core",
-        tableLabel: "Indicative Vendure Core phase allocations",
-        columns: ["Phase", "Scope", "Indicative hours", "Indicative cost"],
-        rows: [
-          {
-            phase: "MVP / Phase 1",
-            scope:
-              "Retain core current-site functionality and deliver all Priority 1 requirements. Includes new design and Next.js storefront, Vendure Core foundation, CMS, group/division architecture, customer and organisation model, housebuilder/contractor/development model, roles and permissions, customer-specific catalogues and pricing, core Orderwise syncs, online ordering, stock, search, product catalogue, checkout, delivery rules, resources, merchant/key-account portals, WIZMO/tracking, payments, migration, analytics, accessibility and deployment.",
-            hours: "1,135 hrs",
-            cost: "£105,934 + VAT",
-          },
-          {
-            phase: "Phase 2",
-            scope:
-              "Priority 2 requirements including enhanced order amendments, reorder/saved baskets/quick ordering, invoices, partial deliveries, enhanced stock/alternative-product functionality, auto-generated PDFs, privacy mode, account information, damage requests and enhanced stockist/discontinued-product functionality.",
-            hours: "85 hrs",
-            cost: "£7,933 + VAT",
-          },
-          {
-            phase: "Optional / Phase 3",
-            scope:
-              "Priority 3 requirements including extended delivery reservation windows, customer-specific login pop-ups and Wickes InSitu functionality.",
-            hours: "25 hrs",
-            cost: "£2,333 + VAT",
-          },
-          {
-            phase: "Excluded / separately quoted",
-            scope:
-              "Priority 4 requirements: product batch information, sample ordering and subscription ordering. These should be technically scoped before pricing.",
-            hours: "TBC",
-            cost: "TBC",
-          },
-        ],
-        total: {
-          phase: "Quoted project total",
-          scope: "Existing Vendure Core estimate excluding separately quoted Priority 4 items.",
-          hours: "1,245 hrs",
-          cost: "£116,200 + VAT",
-        },
-      },
-      {
-        title: "Shopify Plus",
-        tableLabel: "Indicative Shopify Plus phase allocations",
-        columns: ["Phase", "Scope", "Indicative hours", "Indicative cost"],
-        rows: [
-          {
-            phase: "MVP / Phase 1",
-            scope:
-              "Retain core current-site functionality and deliver Priority 1 requirements using Shopify Plus B2B wherever practical. Includes theme/storefront, CMS, Companies/Locations, customer and branch model, housebuilder custom application layer, catalogues, pricing, Orderwise integrations, ordering, stock, search, product catalogue, B2B checkout, core delivery rules, resources, merchant/key-account portals, WIZMO/tracking, migration, analytics, security and deployment.",
-            hours: "1,185 hrs",
-            cost: "£110,600 + VAT",
-          },
-          {
-            phase: "Phase 2",
-            scope:
-              "Priority 2 functionality requiring additional Shopify configuration and custom-app workflows, including post-order amendments, reorder/saved basket journeys, invoices/account data, partial/back-order processes, auto-generated documents, privacy mode and additional support functionality.",
-            hours: "105 hrs",
-            cost: "£9,800 + VAT",
-          },
-          {
-            phase: "Optional / Phase 3",
-            scope:
-              "Priority 3 enhancements including extended delivery scheduling, account-specific notifications/pop-ups and Wickes InSitu integration.",
-            hours: "30 hrs",
-            cost: "£2,800 + VAT",
-          },
-          {
-            phase: "Excluded / separately quoted",
-            scope:
-              "Priority 4 requirements: product batch information, sample ordering and subscription ordering. These would require further Shopify/Orderwise feasibility work.",
-            hours: "TBC",
-            cost: "TBC",
-          },
-        ],
-        total: {
-          phase: "Quoted project total",
-          scope: "Existing Shopify Plus estimate excluding separately quoted Priority 4 items.",
-          hours: "1,320 hrs",
-          cost: "£123,200 + VAT",
-        },
-      },
-    ],
-    closing: [
-      "The objective of the phasing is to give Verona a controlled route through delivery and launch while keeping the commercial implications clear.",
-    ],
+    heading: "",
+    paragraphs: [],
+    totals: [],
+    options: [],
+    closing: [],
   },
 } as const;
 
 export const nextSteps = {
   kicker: "Next Steps",
-  heading: "Next steps",
+  heading: "What comes next",
   paragraphs: [
-    "Our recommendation is to proceed with the Vendure Core rebuild.",
-    "We believe this provides the strongest fit for the requirements Verona has set out and the way the portal needs to operate in practice. It gives us the flexibility to build around Verona’s customer relationships, account-specific functionality and Orderwise integration without forcing those requirements into the constraints of a more prescriptive ecommerce platform.",
-    "The current budget estimate for this route is £116,200 + VAT, subject to final scope and technical validation.",
-    "The Magento improvement programme remains available if Verona’s priority is to make targeted improvements while making a significantly lower initial investment. However, it should be viewed as an investment in extending and improving the existing platform rather than an alternative route to the same end result.",
-    "Shopify Plus is also a viable rebuild option, but based on the requirements currently understood, we believe Vendure Core provides Verona with greater flexibility and long-term control for a platform with this level of bespoke customer and integration functionality.",
+    "This review is the beginning of a conversation, not the end of our thinking.",
+    "We’d like to sit down with you and walk through these findings, understand your perspective and agree on priorities before we move into detailed scoping or commercial proposals.",
+    "There’s real value we believe we can create here. Our findings are based on genuine analysis of your platform and business, not a template we’re trying to fit.",
   ],
   confirming: {
-    heading: "Confirming the approach",
+    heading: "Getting the conversation started",
     paragraphs: [
-      "The next step would be to work through the proposal with Verona and confirm the preferred route.",
-      "If Verona wishes to proceed with Vendure Core, we would then move into final technical validation and project planning before development begins.",
-      "This would allow us to:",
+      "We suggest we schedule a meeting to discuss this review. We can tailor the discussion to what matters most to you.",
+      "Some possible approaches:",
     ],
     points: [
-      "Confirm the detailed scope and assumptions behind the £116,200 budget estimate",
-      "Validate the more complex customer, pricing and Orderwise workflows",
-      "Confirm the technical architecture and required third-party services",
-      "Finalise the ongoing infrastructure and support costs",
-      "Agree the Phase 1 scope and any functionality to be introduced later",
-      "Confirm the delivery programme, milestones and target launch window",
-      "Agree the commercial structure and commencement date",
+      "Walk through the key findings across all areas and gather your initial thoughts",
+      "Focus in depth on the areas you care most about",
+      "Discuss specific questions or concerns you have",
+      "Explore how we’d approach any of the work we’re suggesting",
+      "Talk about commercial structure, timing and how we’d work together",
     ],
     closing: [
-      "Once these points are confirmed, we can produce the final delivery plan and move into the discovery and technical validation stage.",
+      "We’re flexible on format and depth. The goal is to make sure this review reflects your reality and priorities, and that you have confidence in any recommendations we make.",
     ],
   },
   growth: {
-    heading: "A platform for the next stage of Verona’s growth",
+    heading: "Why this matters",
     paragraphs: [
-      "The objective of this project is not simply to replace Magento.",
-      "It is an opportunity to give Verona a portal that is easier for customers to use, more efficient for the internal team to manage and better suited to the customer relationships and operational processes that have developed around the business.",
-      "Our existing relationship with Verona gives us a strong starting point. We already understand much of the current platform, its integration with Orderwise and the areas where the existing service creates friction.",
-      "The Vendure Core rebuild gives us the opportunity to combine that knowledge with a fresh customer experience and a technical foundation that can continue to evolve with Verona over the long term.",
-      "We would welcome the opportunity to work through the proposal with the Verona team, answer any questions on the scope and budget, and agree the route forward.",
+      "Your platform is business-critical. Investment in it should make genuine sense, grounded in your actual situation rather than in technology trends or what we think we’d enjoy building.",
+      "This review is our attempt to do that — to understand your platform and business well enough to make honest recommendations.",
+      "We’d welcome the opportunity to discuss these findings with your team and understand whether we’re seeing the situation clearly.",
     ],
   },
 } as const;
 
 export const costSavings = {
-  heading: "How the estimate has developed",
+  heading: "About this document",
   paragraphs: [
-    "Our understanding of Verona’s platform, customers and technical requirements has developed considerably since the original 2024 estimate.",
-    "At that stage, a significant part of the challenge was estimating a complex platform and integration from the outside. Since then, Pragmatic has worked directly with Verona’s existing platform and gained a much more detailed understanding of how the service operates in practice.",
-    "We now have first-hand knowledge of the existing Magento application, the Orderwise integration, product and customer structures, account-specific requirements and many of the operational processes that sit behind the portal.",
-    "That accumulated knowledge reduces uncertainty.",
-    "Rather than beginning the project with a lengthy exercise to establish how the existing platform works, we can focus discovery and technical validation on the areas that need to change and on confirming the architecture of the new Vendure Core platform.",
+    "This review represents a few days of focused work on your platform, your business and the opportunities we see.",
+    "It’s not a formal proposal and there are no commercial terms attached to it. It’s our honest assessment of where we see value, where we have questions and what we think matters.",
   ],
   reuse: {
-    heading: "Reusing what we have learned",
+    heading: "What you’ll find here",
     paragraphs: [
-      "The benefit is not simply that we know the existing codebase.",
-      "Through ongoing support and development we have already encountered many of the practical scenarios that a new supplier would need to discover during the project, including customer account relationships, product data, pricing, Orderwise workflows and the areas that regularly create friction.",
-      "We can carry that understanding into the new platform without carrying forward the limitations of the existing Magento architecture.",
-      "This gives us a stronger basis for estimating the work and should reduce time spent on avoidable investigation, rework and rediscovery.",
+      "The main body of this document walks through our findings across the key areas we reviewed — customer experience, technology, operations and growth.",
+      "Each section explains what we found, why it matters and what questions we have. We’ve tried to be specific rather than generic and to flag where we’d need more information before estimating scope or impact.",
+      "We’ve also included our thoughts on commercial approach and how we’d typically work on projects like this.",
     ],
   },
   deliveryApproach: {
-    heading: "A more efficient delivery approach",
+    heading: "How we approach this kind of work",
     paragraphs: [
-      "Our development process has also continued to evolve since the earlier estimate.",
-      "We now make greater use of reusable technical foundations, established development patterns, automated testing and modern engineering tools to accelerate appropriate parts of the delivery process.",
-      "AI-assisted development tools form one part of that workflow and can help with repetitive development, analysis and testing tasks. They are not the basis of the commercial estimate and they do not replace the engineering team responsible for the project.",
-      "Architecture, implementation decisions, code review, testing and production changes remain the responsibility of Pragmatic’s development team.",
+      "We believe the right approach depends on understanding what actually matters to you — not just technology trends or what we’d like to build.",
+      "This review is our attempt to be grounded in your reality. We’ve asked questions, listened carefully and tried to prioritise based on impact rather than complexity.",
+      "If we move forward, we’d continue that same approach through scoping, planning and delivery.",
     ],
   },
   commercially: {
-    heading: "What this means commercially",
+    heading: "No pressure, just conversation",
     paragraphs: [
-      "The current £116,200 + VAT Vendure Core estimate reflects our present understanding of Verona’s requirements and the scope described in this proposal.",
-      "The commercial benefit of the existing relationship is that we are starting from a much stronger position than we were in 2024. We have greater certainty around the work, can focus technical discovery more precisely and can make use of the knowledge and delivery foundations developed since the original estimate.",
-      "We do not believe it is useful to present the difference from the 2024 estimate as a simple like-for-like saving unless the two scopes are directly comparable.",
-      "Instead, the current figure should be assessed against the functionality, assumptions and exclusions set out in this proposal.",
-      "The important point is that the estimate reflects what we now know about Verona and how we would build the platform today, rather than pricing the project as though we were approaching the business and its systems for the first time.",
+      "We’ve brought this review to you because we think there’s real potential here. But we want to move at your pace and in a direction that makes sense for you.",
+      "The next step is to have a conversation. Whether that leads to a formal proposal, a phased approach, or something different entirely depends on what you learn from our findings and what your priorities actually are.",
+      "We’re ready to discuss whenever that works for you.",
     ],
   },
 } as const;

@@ -3,7 +3,7 @@ import { ScrollableTable } from "@/components/ScrollableTable";
 import { ongoingCosts } from "@/lib/site";
 
 export function OngoingCosts() {
-  const { recommendedSupport, recurringCosts, retainer, platformDependency } = ongoingCosts;
+  const { recommendedSupport, retainer, platformDependency } = ongoingCosts;
 
   return (
     <section
@@ -42,26 +42,6 @@ export function OngoingCosts() {
             {recommendedSupport.paragraphs.map((paragraph, index) => (
               <Reveal key={paragraph.slice(0, 40)} delay={index * 40}>
                 <p>{paragraph}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-16 border-t border-rule pt-14 sm:mt-20 sm:pt-16">
-          <Reveal>
-            <h3 className="font-display max-w-2xl text-[1.45rem] tracking-[-0.03em] text-ink sm:text-3xl">
-              {recurringCosts.heading}
-            </h3>
-          </Reveal>
-          <div className="mt-10 divide-y divide-rule border-y border-rule">
-            {recurringCosts.options.map((option, index) => (
-              <Reveal key={option.title} delay={index * 60} className="print-keep py-8">
-                <h4 className="text-lg font-medium tracking-tight text-ink">{option.title}</h4>
-                <div className="mt-4 max-w-3xl space-y-4 text-[0.98rem] leading-relaxed text-ink-soft sm:text-base">
-                  {option.paragraphs.map((paragraph) => (
-                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-                  ))}
-                </div>
               </Reveal>
             ))}
           </div>

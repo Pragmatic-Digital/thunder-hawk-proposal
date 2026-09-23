@@ -54,7 +54,7 @@ export default async function LoginPage({
 
       <main className="relative flex flex-1 overflow-hidden">
         <div className="pointer-events-none absolute -right-6 top-10 hidden select-none font-display text-[9rem] leading-none text-ink/[0.035] sm:block lg:text-[12rem]">
-          Verona
+          {site.client}
         </div>
 
         <div className="mx-auto flex w-full max-w-6xl items-center px-5 py-16 sm:px-8 sm:py-24">
