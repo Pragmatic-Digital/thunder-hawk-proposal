@@ -25,14 +25,14 @@ This is a reusable proposal-generator framework. Content is authored in Markdown
 
 | Command | Purpose |
 | --- | --- |
-| `npm run dev` | Local dev server on http://localhost:3000 |
-| `npm run build` | Production build |
-| `npm start` | Serve production build |
-| `npm run lint` | ESLint check |
+| `pnpm dev` | Local dev server on http://localhost:3000 |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve production build |
+| `pnpm lint` | ESLint check |
 
 **Node version**: >=20 required (see `.nvmrc`).
 
-**Package manager**: npm (primary; `pnpm-lock.yaml` is incidental from setup).
+**Package manager**: pnpm (primary).
 
 ## To add a new proposal section
 
@@ -89,9 +89,9 @@ Key types in `lib/content-schema.ts`:
 ## Testing the build locally
 
 ```bash
-npm run build        # Validates all content and config at build time
-npm run dev          # Start dev server; hot-reload on content changes
-npm run lint         # Type check and lint
+pnpm build        # Validates all content and config at build time
+pnpm dev          # Start dev server; hot-reload on content changes
+pnpm lint         # Type check and lint
 ```
 
 Heading anchors work automatically — the page auto-derives section IDs from content slugs, and heading IDs are scoped per-section to avoid collisions. Print export (browser "Save as PDF") works via CSS media queries.

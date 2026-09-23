@@ -3,12 +3,12 @@
 import { useActiveSection } from "@/components/ActiveSection";
 import { cn } from "@/lib/cn";
 import config from "@/proposal.config";
-import type { ResolvedNavItem } from "@/lib/nav";
+import type { NavItem } from "@/lib/nav";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-export function ProposalHeader({ quotes, navItems }: { quotes: any[]; navItems: ResolvedNavItem[] }) {
+export function ProposalHeader({ navItems }: { navItems: NavItem[] }) {
   const { activeId } = useActiveSection();
   const items = navItems;
   const itemKey = items.map((item) => item.id).join("|");
@@ -204,7 +204,7 @@ function NavAnchor({
   className,
   onNavigate,
 }: {
-  item: ResolvedNavItem;
+  item: NavItem;
   activeId: string;
   className?: string;
   onNavigate?: () => void;
