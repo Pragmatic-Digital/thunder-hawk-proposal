@@ -6,6 +6,11 @@ export type SectionFrontmatter = {
   layout?: "prose" | "quote" | "hero" | "invert" | "retool";
   tone?: "default" | "invert" | "retool";
   lede?: string;
+
+  order: number;
+  component?: "hero" | "options-cards" | "comparison-table" | "group" | "prose";
+  nav?: { id: string; label?: string } | false;
+  groupWith?: string;
 };
 
 export type QuoteFrontmatterExtension = {
@@ -20,7 +25,7 @@ export type QuoteFrontmatterExtension = {
   status: string;
   summary: string;
   order: number;
-  outcomes?: string[];
+  outcomes: string[];
   comparison?: {
     architecture: string;
     search: string;
@@ -98,12 +103,36 @@ export function assertSectionFrontmatter(
   data: Record<string, unknown>,
   slug: string,
 ): SectionFrontmatter & Record<string, unknown> {
-  const required = ["title"] as const;
+  const required = ["title", "order"] as const;
   for (const field of required) {
     if (data[field] === undefined || data[field] === null || data[field] === "") {
       throw new Error(`Section "${slug}" is missing required frontmatter field "${field}".`);
     }
   }
+
+  const validComponents = ["hero", "options-cards", "comparison-table", "group", "prose"];
+  if (data.component && !validComponents.includes(String(data.component))) {
+    throw new Error(`Section "${slug}" has invalid component: "${data.component}". Must be one of: ${validComponents.join(", ")}.`);
+  }
+
+  let nav: { id: string; label?: string } | false | undefined;
+  if (data.nav !== undefined) {
+    if (data.nav === false) {
+      nav = false;
+    } else if (typeof data.nav === "object" && data.nav !== null) {
+      const navObj = data.nav as Record<string, unknown>;
+      if (!navObj.id || typeof navObj.id !== "string") {
+        throw new Error(`Section "${slug}" has invalid nav.id: must be a non-empty string.`);
+      }
+      nav = {
+        id: String(navObj.id),
+        label: navObj.label ? String(navObj.label) : undefined,
+      };
+    } else {
+      throw new Error(`Section "${slug}" has invalid nav: must be an object with 'id' and optional 'label', or false.`);
+    }
+  }
+
   return {
     ...data,
     title: String(data.title),
@@ -111,6 +140,10 @@ export function assertSectionFrontmatter(
     layout: data.layout ? (String(data.layout) as SectionFrontmatter["layout"]) : undefined,
     tone: data.tone ? (String(data.tone) as SectionFrontmatter["tone"]) : undefined,
     lede: data.lede ? String(data.lede) : undefined,
+    order: Number(data.order),
+    component: data.component ? (String(data.component) as SectionFrontmatter["component"]) : undefined,
+    nav,
+    groupWith: data.groupWith ? String(data.groupWith) : undefined,
   };
 }
 
@@ -150,7 +183,7 @@ export function assertQuoteFrontmatter(
     status: String(data.status),
     summary: String(data.summary),
     order: Number(data.order),
-    outcomes: parseOutcomes(data.outcomes),
+    outcomes: parseOutcomes(data.outcomes) || [],
     comparison: parseComparison(data.comparison),
   };
 }

@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section id="overview" aria-labelledby="proposal-title" className="relative overflow-hidden">
       <div className="pointer-events-none absolute -right-6 top-10 hidden select-none font-display text-[9rem] leading-none text-ink/[0.035] sm:block lg:text-[12rem]">
-        Verona
+        {site.heroBackgroundText}
       </div>
 
       <div className="mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">

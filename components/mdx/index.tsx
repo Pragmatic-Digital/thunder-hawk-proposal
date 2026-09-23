@@ -16,17 +16,18 @@ import { Figure } from "./Figure";
 import { cn } from "@/lib/cn";
 import { headingId, flattenText } from "@/lib/headings";
 
-function createHeadingComponent(level: number, idPrefix?: string) {
+function createHeadingComponent(level: number, idPrefix?: string, tone: "default" | "invert" | "retool" = "default") {
   return function Heading({ children }: { children: ReactNode }) {
     const text = flattenText(children);
     const id = idPrefix ? headingId(idPrefix, text) : undefined;
 
+    const textColor = tone === "invert" ? "text-paper" : "text-ink";
     const classes =
       level === 2
-        ? "font-display mt-8 max-w-2xl text-[1.75rem] tracking-[-0.03em] text-ink sm:mt-10 sm:text-4xl"
+        ? `font-display mt-8 max-w-2xl text-[1.75rem] tracking-[-0.03em] ${textColor} sm:mt-10 sm:text-4xl`
         : level === 3
-          ? "font-display mt-6 max-w-2xl text-[1.45rem] tracking-[-0.03em] text-ink sm:mt-8 sm:text-3xl"
-          : "font-display mt-4 max-w-2xl text-xl tracking-[-0.03em] text-ink sm:mt-6 sm:text-2xl";
+          ? `font-display mt-6 max-w-2xl text-[1.45rem] tracking-[-0.03em] ${textColor} sm:mt-8 sm:text-3xl`
+          : `font-display mt-4 max-w-2xl text-xl tracking-[-0.03em] ${textColor} sm:mt-6 sm:text-2xl`;
 
     const Component = level === 2 ? "h2" : level === 3 ? "h3" : "h4";
 
@@ -40,41 +41,61 @@ function createHeadingComponent(level: number, idPrefix?: string) {
   };
 }
 
-export function createMDXComponents(idPrefix?: string): MDXComponents {
+export function createMDXComponents(idPrefix?: string, tone: "default" | "invert" | "retool" = "default"): MDXComponents {
   return {
-    h1: createHeadingComponent(2, idPrefix),
-    h2: createHeadingComponent(2, idPrefix),
-    h3: createHeadingComponent(3, idPrefix),
-    h4: createHeadingComponent(4, idPrefix),
+    h1: createHeadingComponent(2, idPrefix, tone),
+    h2: createHeadingComponent(2, idPrefix, tone),
+    h3: createHeadingComponent(3, idPrefix, tone),
+    h4: createHeadingComponent(4, idPrefix, tone),
     h5: "h5",
     h6: "h6",
-    p: ({ children }) => (
-      <Reveal>
-        <p className="mt-3 text-base leading-relaxed text-ink-soft sm:mt-4 sm:text-lg">{children}</p>
-      </Reveal>
-    ),
-    ul: ({ children }) => (
-      <Reveal>
-        <ul className="mt-4 space-y-2 text-base leading-relaxed text-ink-soft sm:mt-5 sm:space-y-3 sm:text-lg">
-          {children}
-        </ul>
-      </Reveal>
-    ),
-    ol: ({ children }) => (
-      <Reveal>
-        <ol className="mt-4 space-y-2 text-base leading-relaxed text-ink-soft sm:mt-5 sm:space-y-3 sm:text-lg">
-          {children}
-        </ol>
-      </Reveal>
-    ),
+    p: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper-soft" : "text-ink-soft";
+      return (
+        <Reveal>
+          <p className={`mt-3 text-base leading-relaxed ${textColor} sm:mt-4 sm:text-lg`}>{children}</p>
+        </Reveal>
+      );
+    },
+    ul: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper-soft" : "text-ink-soft";
+      return (
+        <Reveal>
+          <ul className={`mt-4 space-y-2 text-base leading-relaxed ${textColor} sm:mt-5 sm:space-y-3 sm:text-lg`}>
+            {children}
+          </ul>
+        </Reveal>
+      );
+    },
+    ol: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper-soft" : "text-ink-soft";
+      return (
+        <Reveal>
+          <ol className={`mt-4 space-y-2 text-base leading-relaxed ${textColor} sm:mt-5 sm:space-y-3 sm:text-lg`}>
+            {children}
+          </ol>
+        </Reveal>
+      );
+    },
     li: ({ children }) => <li className="ml-6 before:absolute before:-ml-6 before:content-['–']">{children}</li>,
-    blockquote: ({ children }) => (
-      <Reveal>
-        <blockquote className="my-6 border-l-4 border-sage pl-6 font-display text-lg italic leading-relaxed text-ink sm:my-8 sm:pl-8 sm:text-xl">
-          {children}
-        </blockquote>
-      </Reveal>
-    ),
+    blockquote: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper" : "text-ink";
+      return (
+        <Reveal>
+          <blockquote className={`my-6 border-l-4 border-sage pl-6 font-display text-lg italic leading-relaxed ${textColor} sm:my-8 sm:pl-8 sm:text-xl`}>
+            {children}
+          </blockquote>
+        </Reveal>
+      );
+    },
+    strong: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper-soft" : "inherit";
+      return <strong className={textColor}>{children}</strong>;
+    },
+    em: ({ children }) => {
+      const textColor = tone === "invert" ? "text-paper-soft" : "inherit";
+      return <em className={textColor}>{children}</em>;
+    },
     table: MarkdownTable,
     thead: TableHead,
     tbody: TableBody,
@@ -117,7 +138,7 @@ export function SectionRenderer({
   tone = "default",
   children,
 }: SectionRendererProps) {
-  const components = createMDXComponents(slug);
+  const components = createMDXComponents(slug, tone);
 
   const toneClasses = {
     default: "",

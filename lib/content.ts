@@ -65,6 +65,13 @@ export async function getQuotes(): Promise<Quote[]> {
   return quotes.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 }
 
-export async function getSections(slugs: string[]): Promise<Section[]> {
-  return Promise.all(slugs.map((slug) => getSection(slug)));
+export async function getSections(): Promise<Section[]> {
+  if (!fs.existsSync(SECTIONS_DIRECTORY)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(SECTIONS_DIRECTORY).filter((f) => f.endsWith(".mdx"));
+  const sections = await Promise.all(files.map((f) => getSection(f.replace(/\.mdx$/, ""))));
+
+  return sections.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 }

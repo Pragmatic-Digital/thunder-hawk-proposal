@@ -22,7 +22,7 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   title: `${site.client}, ${site.proposalLabel} | ${site.agency}`,
   description:
-    "A digital platform proposal from Pragmatic Digital for Thunder Hawk, recommending Vendure Core and comparing Shopify Plus and a Magento improvement programme.",
+    "A digital platform proposal from Pragmatic Digital for Client Name, recommending Vendure Core and comparing Shopify Plus and a Magento improvement programme.",
   robots: {
     index: false,
     follow: false,

@@ -1,9 +1,3 @@
-export type NavItem = {
-  id: string;
-  label: string;
-  matchIds: string[] | "auto-quotes";
-};
-
 export type ThemeConfig = {
   colorPage: string;
   colorPageDeep: string;
@@ -35,19 +29,9 @@ export type SiteConfig = {
   description: string;
 };
 
-export type SectionConfigEntry = {
-  slug?: string;
-  component?: "hero" | "options-cards" | "comparison-table" | "group" | "prose";
-  quoteGroup?: "all" | "rebuild" | "retool";
-  tone?: "default" | "invert" | "retool";
-  children?: SectionConfigEntry[];
-};
-
 export type ProposalConfig = {
   site: SiteConfig;
   theme: ThemeConfig;
-  nav: NavItem[];
-  sections: SectionConfigEntry[];
 };
 
 export function assertProposalConfig(config: unknown): asserts config is ProposalConfig {
@@ -63,13 +47,5 @@ export function assertProposalConfig(config: unknown): asserts config is Proposa
 
   if (!cfg.theme || typeof cfg.theme !== "object") {
     throw new Error("proposal.config.ts.theme is missing or invalid");
-  }
-
-  if (!Array.isArray(cfg.nav)) {
-    throw new Error("proposal.config.ts.nav must be an array");
-  }
-
-  if (!Array.isArray(cfg.sections)) {
-    throw new Error("proposal.config.ts.sections must be an array");
   }
 }

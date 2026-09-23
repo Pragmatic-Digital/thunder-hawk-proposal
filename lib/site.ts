@@ -1,12 +1,13 @@
 export const site = {
   agency: "Pragmatic Digital",
-  client: "Thunder Hawk",
-  proposalLabel: "Thunder Hawk Digital Platform Proposal",
+  client: "Client Name",
+  proposalLabel: "Client Name Digital Platform Proposal",
   prepared: "September 2026",
   email: "hello@pragmaticdigital.co.uk",
   phone: "0113 534 9949",
   address: "Mabgate Business Centre, 93–99 Mabgate, Leeds LS9 7DR",
   heroHeading: "Our recommendation for Verona",
+  heroBackgroundText: "Background Text",
   recommendation:
     "We recommend a Vendure Core rebuild with a Next.js frontend, with an indicative project investment of £116,200 + VAT.",
   overviewParagraphs: [
@@ -160,7 +161,7 @@ export const whyPragmatic = {
     },
     {
       title: "An established working relationship",
-      body: "Combined with our experience of delivering and supporting Verona’s existing websites, and our relationships with your key stakeholders, this puts Pragmatic Digital in a strong position to deliver a solution that is technically robust, commercially appropriate and grounded in how Thunder Hawk actually operates.",
+      body: "Combined with our experience of delivering and supporting Verona’s existing websites, and our relationships with your key stakeholders, this puts Pragmatic Digital in a strong position to deliver a solution that is technically robust, commercially appropriate and grounded in how Client Name actually operates.",
     },
   ],
   relevantExperience: {

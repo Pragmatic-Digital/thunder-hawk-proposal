@@ -1,6 +1,6 @@
-# Thunder Hawk digital platform proposal
+# Client Name digital platform proposal
 
-A single-page proposal site for **Pragmatic Digital**, presenting technical and commercial quote options for **Thunder Hawk**. Proposal copy lives in Markdown; the React app discovers those files automatically.
+A single-page proposal site for **Pragmatic Digital**, presenting technical and commercial quote options for **Client Name**. Proposal copy lives in Markdown; the React app discovers those files automatically.
 
 ## 1. How to run the project
 

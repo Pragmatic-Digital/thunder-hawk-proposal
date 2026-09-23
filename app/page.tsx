@@ -1,22 +1,24 @@
 import config from "@/proposal.config";
 import { assertProposalConfig } from "@/lib/config-schema";
-import { getQuotes } from "@/lib/content";
+import { getSections, getQuotes } from "@/lib/content";
 import { composeSections } from "@/lib/compose-sections";
-import { resolveNavItems, getSectionIds } from "@/lib/nav";
+import { buildNavItems, getSectionIds } from "@/lib/nav";
 import { ProposalShell } from "@/components/ProposalShell";
 import { ProposalFooter } from "@/components/ProposalFooter";
 
-assertProposalConfig(config);
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const quotes = await getQuotes();
-  const sections = await composeSections(config.sections, quotes);
-  const navItems = resolveNavItems(config.nav, quotes);
-  const sectionIds = getSectionIds(quotes);
+  assertProposalConfig(config);
+
+  const [sections, quotes] = await Promise.all([getSections(), getQuotes()]);
+  const composed = await composeSections(sections, quotes);
+  const navItems = buildNavItems(sections);
+  const sectionIds = getSectionIds(sections, quotes);
 
   return (
     <ProposalShell quotes={quotes} navItems={navItems} sectionIds={sectionIds}>
-      <main>{sections}</main>
+      <main>{composed}</main>
       <ProposalFooter />
     </ProposalShell>
   );

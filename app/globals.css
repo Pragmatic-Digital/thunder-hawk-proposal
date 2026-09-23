@@ -7,6 +7,7 @@
   --color-page: #f3efe8;
   --color-page-deep: #e8e2d8;
   --color-paper: #fbf8f2;
+  --color-paper-soft: #d9d4c8;
   --color-ink: #1b1a17;
   --color-ink-soft: #3c3933;
   --color-ink-muted: #6a655c;
@@ -157,7 +158,6 @@ body {
 }
 
 .proposal-prose strong {
-  color: var(--color-ink);
   font-weight: 600;
 }
 
