@@ -74,9 +74,7 @@ This is a modern, ambitious stack. It creates impressive visual impact but intro
 
 **Analytics Tracking Failure**: Google Analytics POST requests return 503 Service Unavailable. This means page view data isn't being captured. Verify your GA-4 tracking ID (currently configured as `G-KP8WT9QJB5`) and check whether Webflow's analytics integration is properly configured.
 
-**GSAP Animation Errors**: Console logs show "GSAP target `.loader_progress` not found". This indicates an animation is trying to target a DOM element that doesn't exist or hasn't loaded, suggesting timing issues in your animation initialization.
-
-**Browser Extension Interference**: Your development environment shows extension scripts injecting into pages. This is normal locally but should be isolated to testing environments.
+**GSAP Animation Errors**: Console logs show "GSAP target `.loader_progress` not found". This indicates an animation is trying to target a DOM element that doesn't exist or hasn't loaded, suggesting timing issues in your animation initialisation.
 
 **WASM Binary Loading**: Spline's physics engine loads a WASM binary from a cross-origin CDN. This is working but introduces an external dependency that could fail silently if CORS headers change.
 
@@ -104,13 +102,13 @@ Your platform is secure by default:
 
 While our primary audit was conducted on desktop, initial mobile testing via Google Lighthouse confirmed significant performance issues, scoring just **42 for Performance** and **69 for Best Practices.**
 
-The extensive 3D content and unoptimized animation cycles heavily strain mobile GPU resources, which will severely degrade frame rates and responsiveness on older hardware. Beyond local hardware limits, the heavy payload creates severe bottlenecks on constrained mobile connections (3G/4G), driving up time-to-interactive and bouncing users on slower networks. Additionally, these persistent animations currently lack fallbacks for prefers-reduced-motion system settings, introducing key accessibility compliance risks.
+The extensive 3D content and unoptimised animation cycles heavily strain mobile GPU resources, which will severely degrade frame rates and responsiveness on older hardware. Beyond local hardware limits, the heavy payload creates severe bottlenecks on constrained mobile connections (3G/4G), driving up time-to-interactive and bouncing users on slower networks. Additionally, these persistent animations currently lack fallbacks for prefers-reduced-motion system settings, introducing key accessibility compliance risks.
 
 Dedicated physical testing across real iOS, Android, and tablet devices is critical to map out real-world degradation across varying network conditions and hardware profiles.
 
 ## Webflow Platform Assessment & Strategic Recommendations
 
-While the current Webflow site provides a basic technical foundation, its existing architecture is not optimized for industry best practices or mobile performance metrics, which risks negatively impacting search engine visibility. Rather than attempting to patch the current build, we recommend developing a new site designed specifically to scale with your needs and support robust third-party integrations.
+While the current Webflow site provides a basic technical foundation, its existing architecture is not optimised for industry best practices or mobile performance metrics, which risks negatively impacting search engine visibility. Rather than attempting to patch the current build, we recommend developing a new site designed specifically to scale with your needs and support robust third-party integrations.
 
 To move forward, we suggest the following strategic next steps:
 

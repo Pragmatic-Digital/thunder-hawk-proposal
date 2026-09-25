@@ -9,11 +9,10 @@ export const site = {
   heroHeading: "Website audit and new website direction",
   heroBackgroundText: "ThunderHawk",
   recommendation:
-    "Following our initial meeting, we have completed an audit of your digital platform and identified several key areas we’d like to discuss with you.",
+    "We've reviewed the current ThunderHawk website and explored how a new site could better showcase your work and start more conversations with clients and agency partners.",
   overviewParagraphs: [
-    "This document summarises our findings from our review of ThunderHawk’s current digital presence and sets out the ideas and recommendations we’d like to explore together.",
-    "We’ve looked at your existing platform, customer experience, operational processes and the technical foundation supporting your business. This review identifies both the opportunities we see and the areas where we believe investment would create the most value.",
-    "Rather than presenting a formal proposal at this stage, we wanted to share these findings first and understand your priorities before we move into more detailed scoping and commercial discussion.",
+    "Following our conversation with Matt, this document sets out what we found and the ideas we'd like to explore together. The review gives us a starting point for the new build, highlighting what to carry forward and where the experience could improve.",
+    "We've also included some creative ideas showing how your motion and 3D expertise could combine with our development experience.","These are initial recommendations for discussion. Once we've agreed the direction and priorities, we can turn them into a defined scope and quote.",
   ],
   tradeoff:
     "This review is designed to align on direction and identify priorities before we commit to detailed estimates or formal proposals.",

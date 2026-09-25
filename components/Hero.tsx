@@ -3,7 +3,11 @@ import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section id="overview" aria-labelledby="proposal-title" className="relative overflow-hidden">
+    <section
+      id="overview"
+      aria-labelledby="proposal-title"
+      className="relative overflow-hidden"
+    >
       <div className="pointer-events-none absolute -right-6 top-10 hidden select-none font-display text-[9rem] leading-none text-ink/[0.035] sm:block lg:text-[12rem]">
         {site.heroBackgroundText}
       </div>
@@ -40,13 +44,13 @@ export function Hero() {
           ))}
         </div>
 
-        <Reveal delay={360}>
+        {/* <Reveal delay={360}>
           <p className="mt-8 text-sm text-ink-muted">
             <a href="#vendure" className="underline decoration-rule-strong underline-offset-4">
               Read the recommended scope
             </a>
           </p>
-        </Reveal>
+        </Reveal> */}
 
         <Reveal delay={400}>
           <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-6 border-t border-rule pt-8 sm:grid-cols-3">
@@ -66,7 +70,9 @@ export function Hero() {
               <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-ink-muted">
                 Subject
               </dt>
-              <dd className="mt-1.5 text-sm font-medium">Audit And Opportunities</dd>
+              <dd className="mt-1.5 text-sm font-medium">
+                Website audit and new website direction
+              </dd>
             </div>
           </dl>
         </Reveal>
