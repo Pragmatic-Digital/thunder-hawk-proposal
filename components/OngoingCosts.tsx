@@ -120,8 +120,8 @@ export function OngoingCosts() {
                       <td className="is-numeric">{row.proposed}</td>
                     </tr>
                   ))}
-                  {retainer.vendure.totals.map((row, index) => (
-                    <tr key={row.area} className={index === 0 ? "is-total" : "is-grand-total"}>
+                  {(retainer.vendure.totals as unknown as Array<{ area?: string; current?: string; proposed?: string }>).map((row, index) => (
+                    <tr key={`total-${index}`} className={index === 0 ? "is-total" : "is-grand-total"}>
                       <th scope="row">{row.area}</th>
                       <td className="is-numeric">{row.current}</td>
                       <td className="is-numeric">{row.proposed}</td>

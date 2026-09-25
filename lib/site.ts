@@ -1,17 +1,17 @@
 export const site = {
   agency: "Pragmatic Digital",
-  client: "Thunder Hawk",
-  proposalLabel: "Thunder Hawk Digital Platform Review",
+  client: "ThunderHawk",
+  proposalLabel: "ThunderHawk Digital Platform Review",
   prepared: "September 2026",
   email: "hello@pragmaticdigital.co.uk",
   phone: "0113 534 9949",
   address: "Mabgate Business Centre, 93–99 Mabgate, Leeds LS9 7DR",
-  heroHeading: "Thunder Hawk Digital Platform Review",
-  heroBackgroundText: "Thunder Hawk",
+  heroHeading: "ThunderHawk, website audit and new website direction",
+  heroBackgroundText: "ThunderHawk",
   recommendation:
     "Following our initial meeting, we have completed an audit of your digital platform and identified several key areas we’d like to discuss with you.",
   overviewParagraphs: [
-    "This document summarises our findings from our review of Thunder Hawk’s current digital presence and sets out the ideas and recommendations we’d like to explore together.",
+    "This document summarises our findings from our review of ThunderHawk’s current digital presence and sets out the ideas and recommendations we’d like to explore together.",
     "We’ve looked at your existing platform, customer experience, operational processes and the technical foundation supporting your business. This review identifies both the opportunities we see and the areas where we believe investment would create the most value.",
     "Rather than presenting a formal proposal at this stage, we wanted to share these findings first and understand your priorities before we move into more detailed scoping and commercial discussion.",
   ],
@@ -64,29 +64,29 @@ export type ComparisonQualities = {
 export const comparisonBySlug: Record<string, ComparisonQualities> = {
   vendure: {
     architecture:
-      "Vendure Core as the commerce/application layer with a React/Next.js storefront, designed around Thunder Hawk’s catalogue, accounts and Orderwise model.",
+      "Vendure Core as the commerce/application layer with a React/Next.js storefront, designed around ThunderHawk’s catalogue, accounts and Orderwise model.",
     search:
       "Algolia, including AI and synonym search, with autocomplete, fuzzy matching and faceted filtering across SKU, product name and attributes.",
     flexibility:
-      "High. Organisations, branches, commercial rules and housebuilder/contractor/development relationships can be modelled around how Thunder Hawk already trades.",
+      "High. Organisations, branches, commercial rules and housebuilder/contractor/development relationships can be modelled around how ThunderHawk already trades.",
     nativeB2B:
       "B2B is built into the data model: organisations, multiple users, roles, customer-specific catalogues, pricing and permissions.",
     bespokeWorkflow:
-      "Checkout, delivery rules, advanced order management and merchant/key-account portals can follow Thunder Hawk’s established processes.",
+      "Checkout, delivery rules, advanced order management and merchant/key-account portals can follow ThunderHawk’s established processes.",
     ongoingDependency:
-      "Open-source commerce core, hosted on AWS/Cloudflare and evolved under Thunder Hawk’s control.",
+      "Open-source commerce core, hosted on AWS/Cloudflare and evolved under ThunderHawk’s control.",
   },
   shopify: {
     architecture:
-      "Shopify Plus as the ecommerce and B2B foundation, with a custom storefront/theme and bespoke apps where Thunder Hawk’s model extends beyond native Plus.",
+      "Shopify Plus as the ecommerce and B2B foundation, with a custom storefront/theme and bespoke apps where ThunderHawk’s model extends beyond native Plus.",
     search:
       "Enhanced catalogue search on the Shopify storefront, with filters, autocomplete, fuzzy matching, synonyms, technical attributes and customer-specific product visibility.",
     flexibility:
-      "High within Shopify’s B2B model. Companies, locations, catalogues and checkout are used natively; custom apps cover housebuilder/development structures and advanced Thunder Hawk Orderwise workflows.",
+      "High within Shopify’s B2B model. Companies, locations, catalogues and checkout are used natively; custom apps cover housebuilder/development structures and advanced ThunderHawk Orderwise workflows.",
     nativeB2B:
       "Shopify Companies, Company Locations, catalogues, payment terms and wholesale functionality form the core B2B model.",
     bespokeWorkflow:
-      "Custom application work for housebuilder/contractor/development relationships, Thunder Hawk Orderwise-sourced account data, merchant portals and post-order amendments.",
+      "Custom application work for housebuilder/contractor/development relationships, ThunderHawk Orderwise-sourced account data, merchant portals and post-order amendments.",
     ongoingDependency:
       "Shopify Plus remains the commerce substrate, checkout, B2B accounts, apps and billing, with custom apps and Orderwise integration around it.",
   },
@@ -142,14 +142,14 @@ export const retoolAlternative = {
 export const whyPragmatic = {
   heading: "Why Pragmatic Digital",
   paragraphs: [
-    "We’ve built our reputation on deep expertise in web platforms — from concept through launch and beyond. Over the past decade, we’ve worked with studios, agencies and brands on some of the most visually ambitious websites in the market, many involving complex animations, 3D graphics, video integration and high-performance interactive experiences.",
+    "We’ve built our reputation on deep expertise in web platforms, from concept through launch and beyond. Over the past decade, we’ve worked with studios, agencies and brands on some of the most visually ambitious websites in the market, many involving complex animations, 3D graphics, video integration and high-performance interactive experiences.",
     "That experience extends to working alongside creative agencies as trusted technical partners. We understand the challenges of bridging beautiful design with robust technical delivery, and we know how to navigate the demands of premium clients and complex briefs.",
-    "For Thunder Hawk Studio specifically, this expertise translates into practical value. Your platform needs to showcase world-class creative work without compromising on performance or reliability. That’s exactly the problem we’ve spent our careers solving.",
+    "For ThunderHawk Studio specifically, this expertise translates into practical value. Your platform needs to showcase world-class creative work without compromising on performance or reliability. That’s exactly the problem we’ve spent our careers solving.",
   ],
   points: [
     {
       title: "We’ve delivered complex web experiences at scale",
-      body: "Our portfolio includes animated microsites, 3D-heavy portfolios, video-driven storytelling platforms and interactive installations. We understand the technical patterns that make rich visual experiences work reliably — lazy loading, asset optimisation, progressive enhancement and caching strategies that don’t compromise on visual impact.",
+      body: "Our portfolio includes animated microsites, 3D-heavy portfolios, video-driven storytelling platforms and interactive installations. We understand the technical patterns that make rich visual experiences work reliably: lazy loading, asset optimisation, progressive enhancement and caching strategies that don’t compromise on visual impact.",
     },
     {
       title: "We’re trusted partners for creative agencies",
@@ -157,11 +157,11 @@ export const whyPragmatic = {
     },
     {
       title: "We understand the Webflow ecosystem deeply",
-      body: "Your current platform is built on Webflow — a tool we know well. We understand its strengths for rapid iteration and its limitations when it comes to performance and edge cases. This context means we’re not suggesting change for change’s sake; we can assess what Webflow can realistically handle and where you’d benefit from different approaches.",
+      body: "Your current platform is built on Webflow, a tool we know well. We understand its strengths for rapid iteration and its limitations when it comes to performance and edge cases. This context means we’re not suggesting change for change’s sake; we can assess what Webflow can realistically handle and where you’d benefit from different approaches.",
     },
     {
       title: "We know what matters to creative studios",
-      body: "Thunder Hawk’s reputation depends on your platform reflecting your creative standard. We’ve worked with studios where every pixel matters, where performance is part of the brand promise and where technical debt quietly kills the user experience. We know how to prioritise accordingly.",
+      body: "ThunderHawk’s reputation depends on your platform reflecting your creative standard. We’ve worked with studios where every pixel matters, where performance is part of the brand promise and where technical debt quietly kills the user experience. We know how to prioritise accordingly.",
     },
   ],
   relevantExperience: {
@@ -172,7 +172,7 @@ export const whyPragmatic = {
         title: "High-performance creative platforms",
         paragraphs: [
           "We’ve built and optimised portfolio sites featuring 3D graphics, video and complex animations. We know how to load Spline scenes efficiently, handle large video assets without killing performance and structure code so animations don’t create bottlenecks.",
-          "The Webflow video asset 429 errors you’re experiencing? We’ve seen this before. It’s a symptom of improper caching configuration or CDN rate limiting — fixable problems that don’t require a full platform rebuild.",
+          "The Webflow video asset 429 errors you’re experiencing? We’ve seen this before. It’s a symptom of improper caching configuration or CDN rate limiting: fixable problems that don’t require a full platform rebuild.",
         ],
       },
       {
@@ -194,7 +194,7 @@ export const whyPragmatic = {
 export const benefits = {
   kicker: "Opportunities",
   heading: "Where we see value in improvement",
-  lede: "Our review has identified several areas where investment in the platform could create meaningful value for both Thunder Hawk and your customers. These are grounded in what we’ve observed during our audit and what we’ve heard from you during our initial discussions.",
+  lede: "Our review has identified several areas where investment in the platform could create meaningful value for both ThunderHawk and your customers. These are grounded in what we’ve observed during our audit and what we’ve heard from you during our initial discussions.",
   points: [
     {
       title: "Customer experience and discovery",
@@ -284,7 +284,7 @@ export const ongoingCosts = {
       ],
       totals: [],
       closing: [
-        "This review gives us a strong foundation for that conversation. Once we’ve discussed these findings and aligned on your priorities, we can recommend an approach that’s genuinely tailored to Thunder Hawk rather than a template solution.",
+        "This review gives us a strong foundation for that conversation. Once we’ve discussed these findings and aligned on your priorities, we can recommend an approach that’s genuinely tailored to ThunderHawk rather than a template solution.",
       ],
     },
   },
@@ -352,7 +352,7 @@ export const delivery = {
       "We looked at your architecture and technical implementation, reviewed customer-facing flows and journeys, spoke with your team about operational challenges and priorities, and considered what competitive or market developments might affect your platform strategy.",
       "Rather than recommending a wholesale replacement, we tried to identify which improvements would create the most value and which are realistic given your circumstances.",
       "We’ve flagged areas where we’d need more information before being able to estimate scope or impact, and identified questions we think matter for your decision-making.",
-      "The goal is to have an honest conversation about what’s genuinely worth doing, in what order and by when — not to oversell a solution we’d like to deliver.",
+      "The goal is to have an honest conversation about what’s genuinely worth doing, in what order and by when, not to oversell a solution we’d like to deliver.",
     ],
   },
   programme: {
@@ -407,7 +407,7 @@ export const phasing = {
   paragraphs: [
     "This review document is the foundation for a discussion we want to have with you.",
     "Rather than presenting finished proposals or commercial terms, we've brought our findings and ideas. We want to understand what resonates, what we've missed and what your real priorities are.",
-    "That conversation will shape everything that follows — whether we move to detailed scoping, commercial proposals or a different approach altogether.",
+    "That conversation will shape everything that follows: whether we move to detailed scoping, commercial proposals or a different approach altogether.",
   ],
   whyPhaseOne: {
     heading: "What we want from your feedback",
@@ -423,7 +423,7 @@ export const phasing = {
   benefits: {
     heading: "Timing and next steps",
     paragraphs: [
-      "We're ready to discuss this review whenever works best for you. We don't have a fixed agenda — we're happy to go deep into areas that matter most or move quickly through the findings.",
+      "We're ready to discuss this review whenever works best for you. We don't have a fixed agenda: we're happy to go deep into areas that matter most or move quickly through the findings.",
       "The objective is to have a genuine conversation, not to pitch proposals or rush towards commercial terms.",
     ],
     points: [
@@ -478,7 +478,7 @@ export const nextSteps = {
     heading: "Why this matters",
     paragraphs: [
       "Your platform is business-critical. Investment in it should make genuine sense, grounded in your actual situation rather than in technology trends or what we think we’d enjoy building.",
-      "This review is our attempt to do that — to understand your platform and business well enough to make honest recommendations.",
+      "This review is our attempt to do that: to understand your platform and business well enough to make honest recommendations.",
       "We’d welcome the opportunity to discuss these findings with your team and understand whether we’re seeing the situation clearly.",
     ],
   },
@@ -493,7 +493,7 @@ export const costSavings = {
   reuse: {
     heading: "What you’ll find here",
     paragraphs: [
-      "The main body of this document walks through our findings across the key areas we reviewed — customer experience, technology, operations and growth.",
+      "The main body of this document walks through our findings across the key areas we reviewed: customer experience, technology, operations and growth.",
       "Each section explains what we found, why it matters and what questions we have. We’ve tried to be specific rather than generic and to flag where we’d need more information before estimating scope or impact.",
       "We’ve also included our thoughts on commercial approach and how we’d typically work on projects like this.",
     ],
@@ -501,7 +501,7 @@ export const costSavings = {
   deliveryApproach: {
     heading: "How we approach this kind of work",
     paragraphs: [
-      "We believe the right approach depends on understanding what actually matters to you — not just technology trends or what we’d like to build.",
+      "We believe the right approach depends on understanding what actually matters to you, not just technology trends or what we’d like to build.",
       "This review is our attempt to be grounded in your reality. We’ve asked questions, listened carefully and tried to prioritise based on impact rather than complexity.",
       "If we move forward, we’d continue that same approach through scoping, planning and delivery.",
     ],

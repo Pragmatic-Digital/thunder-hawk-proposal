@@ -89,7 +89,7 @@ export function Phasing({ page }: { page: MarkdownPage }) {
             </h3>
           </Reveal>
           <div className="mt-6 max-w-3xl space-y-5 text-base leading-relaxed text-ink-soft sm:text-lg">
-            {smallerInvestment.paragraphs.map((paragraph, index) => (
+            {(smallerInvestment.paragraphs as unknown as string[]).map((paragraph, index) => (
               <Reveal key={paragraph.slice(0, 40)} delay={index * 40}>
                 <p>{paragraph}</p>
               </Reveal>
@@ -104,7 +104,7 @@ export function Phasing({ page }: { page: MarkdownPage }) {
             </h3>
           </Reveal>
           <div className="mt-6 max-w-3xl space-y-5 text-base leading-relaxed text-ink-soft sm:text-lg">
-            {allocations.paragraphs.map((paragraph, index) => (
+            {(allocations.paragraphs as unknown as string[]).map((paragraph, index) => (
               <Reveal key={paragraph.slice(0, 40)} delay={index * 40}>
                 <p>{paragraph}</p>
               </Reveal>
@@ -120,8 +120,8 @@ export function Phasing({ page }: { page: MarkdownPage }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {allocations.totals.map((row) => (
-                    <tr key={row.platform}>
+                  {(allocations.totals as unknown as Array<{ platform?: string; amount?: string }>).map((row, idx) => (
+                    <tr key={`total-${idx}`}>
                       <th scope="row">{row.platform}</th>
                       <td className="is-numeric">{row.amount}</td>
                     </tr>
@@ -131,7 +131,7 @@ export function Phasing({ page }: { page: MarkdownPage }) {
             </ScrollableTable>
           </Reveal>
 
-          {allocations.options.map((option) => (
+          {(allocations.options as unknown as Array<{ title?: string; tableLabel?: string; columns: string[]; rows: Array<{ phase?: string; scope?: string; hours?: string; cost?: string }>; total?: { phase?: string; scope?: string; hours?: string; cost?: string } }>).map((option) => (
             <Reveal key={option.title} delay={60} className="mt-12 print-keep">
               <h4 className="text-lg font-medium tracking-tight text-ink">{option.title}</h4>
               <div className="mt-6">
@@ -139,7 +139,7 @@ export function Phasing({ page }: { page: MarkdownPage }) {
                   <table className="estimate-table">
                     <thead>
                       <tr>
-                        {option.columns.map((column) => (
+                        {(option.columns as unknown as string[]).map((column) => (
                           <th key={column} scope="col">
                             {column}
                           </th>
@@ -147,8 +147,8 @@ export function Phasing({ page }: { page: MarkdownPage }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {option.rows.map((row) => (
-                        <tr key={row.phase}>
+                      {(option.rows as unknown as Array<{ phase?: string; scope?: string; hours?: string; cost?: string }>).map((row, idx) => (
+                        <tr key={`row-${idx}`}>
                           <th scope="row">{row.phase}</th>
                           <td>{row.scope}</td>
                           <td className="is-numeric">{row.hours}</td>
@@ -156,10 +156,10 @@ export function Phasing({ page }: { page: MarkdownPage }) {
                         </tr>
                       ))}
                       <tr className="is-grand-total">
-                        <th scope="row">{option.total.phase}</th>
-                        <td>{option.total.scope}</td>
-                        <td className="is-numeric">{option.total.hours}</td>
-                        <td className="is-numeric">{option.total.cost}</td>
+                        <th scope="row">{option.total?.phase}</th>
+                        <td>{option.total?.scope}</td>
+                        <td className="is-numeric">{option.total?.hours}</td>
+                        <td className="is-numeric">{option.total?.cost}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -169,7 +169,7 @@ export function Phasing({ page }: { page: MarkdownPage }) {
           ))}
 
           <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-ink-soft sm:text-lg">
-            {allocations.closing.map((paragraph) => (
+            {(allocations.closing as unknown as string[]).map((paragraph) => (
               <Reveal key={paragraph.slice(0, 40)}>
                 <p>{paragraph}</p>
               </Reveal>

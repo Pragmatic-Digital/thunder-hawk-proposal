@@ -36,7 +36,7 @@ function cellValue(
     return formatDays(quote.days);
   }
 
-  return quote.comparison?.[key] ?? "—";
+  return quote.comparison?.[key] ?? "-";
 }
 
 export function QuoteComparison({ quotes }: { quotes: QuoteMeta[] }) {

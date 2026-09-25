@@ -11,7 +11,7 @@ nav:
 
 ## Your Current Platform
 
-We reviewed Thunder Hawk's platform across several technical dimensions — performance, architecture, security and integration patterns. This section details what we found and highlights areas where improvement would create value.
+We reviewed ThunderHawk's platform across several technical dimensions: performance, architecture, security and integration patterns. This section details what we found and highlights areas where improvement would create value.
 
 ### Performance Baseline
 
@@ -21,7 +21,7 @@ While rich 3D content justifies larger payloads, there are inefficiencies in how
 
 #### Key Performance Findings
 
-**Spline Runtime Chunks**: The aggressive code splitting you're using loads chunks on-demand, which is the right approach. However, the chunks aren't being bundled efficiently — critical rendering chunks could be pre-bundled to reduce initial request overhead.
+**Spline Runtime Chunks**: The aggressive code splitting you're using loads chunks on-demand, which is the right approach. However, the chunks aren't being bundled efficiently; critical rendering chunks could be pre-bundled to reduce initial request overhead.
 
 **Initial Page Load**: Users see a loading indicator (progress bar) for 3–5 seconds before the 3D scene renders. This is acceptable for a creative portfolio, but could be improved with better skeleton states and asset pre-loading.
 
@@ -66,7 +66,7 @@ Your platform is built on **Webflow** (hosting/CMS) with custom integrations:
 - **Animations**: GSAP for scroll-triggered and interaction animations
 - **Page Transitions**: Barba.js for smooth navigation
 - **Text Animations**: Split-Type library
-- **Analytics**: Google Analytics (though tracking has been failing — see below)
+- **Analytics**: Google Analytics (though tracking has been failing – see below)
 
 This is a modern, ambitious stack. It creates impressive visual impact but introduces complexity and external dependencies that need careful management.
 
@@ -74,7 +74,7 @@ This is a modern, ambitious stack. It creates impressive visual impact but intro
 
 **Analytics Tracking Failure**: Google Analytics POST requests return 503 Service Unavailable. This means page view data isn't being captured. Verify your GA-4 tracking ID (currently configured as `G-KP8WT9QJB5`) and check whether Webflow's analytics integration is properly configured.
 
-**GSAP Animation Errors**: Console logs show "GSAP target `.loader_progress` not found" — an animation is trying to target a DOM element that doesn't exist or hasn't loaded. This suggests timing issues in your animation initialization.
+**GSAP Animation Errors**: Console logs show "GSAP target `.loader_progress` not found". This indicates an animation is trying to target a DOM element that doesn't exist or hasn't loaded, suggesting timing issues in your animation initialization.
 
 **Browser Extension Interference**: Your development environment shows extension scripts injecting into pages. This is normal locally but should be isolated to testing environments.
 
@@ -102,16 +102,16 @@ Your platform is secure by default:
 
 ### Mobile Responsiveness
 
-Our audit was conducted on desktop. The extensive 3D content and complex animations may not perform consistently on mobile devices with limited GPU resources. This warrants dedicated testing on iPhone, Android, and tablet devices — particularly older devices where performance could degrade significantly.
+Our audit was conducted on desktop. The extensive 3D content and complex animations may not perform consistently on mobile devices with limited GPU resources. This warrants dedicated testing on iPhone, Android, and tablet devices, particularly older devices where performance could degrade significantly.
 
-## Summary & Next Steps
+## Webflow Platform Assessment & Strategic Recommendations
 
-Your technical foundation is solid. The Webflow + Spline + GSAP stack is proven and capable. However, three areas need immediate attention:
+While the current Webflow site provides a basic technical foundation, its existing architecture is not optimized for industry best practices or mobile performance metrics, which risks negatively impacting search engine visibility. Rather than attempting to patch the current build, we recommend developing a new site designed specifically to scale with your needs and support robust third-party integrations.
 
-1. **Fix the Webflow video asset 429 errors** — this is affecting user experience now
-2. **Resolve analytics tracking** — you're currently not collecting visitor data
-3. **Optimise the initial load experience** — reduce time-to-first-paint for 3D content
+To move forward, we suggest the following strategic next steps:
 
-These aren't architectural problems. They're operational issues that, once addressed, would significantly improve platform reliability and your ability to understand how visitors use the site.
+1. **Alignment & Strategy Session:** Review the current site to identify what to retain and where a new build can deliver the greatest value.
 
-We can discuss each of these in detail and recommend whether they're best tackled within Webflow, through a CDN migration for video assets, or as part of a broader technical review.
+2. **Rebuild & Performance Architecture:** Design a new site from the ground up to achieve top-tier mobile performance, strong search engine positioning, and seamless design flexibility.
+
+3. **Advanced Integration & Engagement:** Build a platform tailored to Thunder Hawk's long-term goals, featuring expanded capabilities to better showcase your work, attract new audiences, and deepen engagement with existing clients.
