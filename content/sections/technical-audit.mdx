@@ -102,7 +102,11 @@ Your platform is secure by default:
 
 ### Mobile Responsiveness
 
-Our audit was conducted on desktop. The extensive 3D content and complex animations may not perform consistently on mobile devices with limited GPU resources. This warrants dedicated testing on iPhone, Android, and tablet devices, particularly older devices where performance could degrade significantly.
+While our primary audit was conducted on desktop, initial mobile testing via Google Lighthouse confirmed significant performance issues, scoring just **42 for Performance** and **69 for Best Practices.**
+
+The extensive 3D content and unoptimized animation cycles heavily strain mobile GPU resources, which will severely degrade frame rates and responsiveness on older hardware. Beyond local hardware limits, the heavy payload creates severe bottlenecks on constrained mobile connections (3G/4G), driving up time-to-interactive and bouncing users on slower networks. Additionally, these persistent animations currently lack fallbacks for prefers-reduced-motion system settings, introducing key accessibility compliance risks.
+
+Dedicated physical testing across real iOS, Android, and tablet devices is critical to map out real-world degradation across varying network conditions and hardware profiles.
 
 ## Webflow Platform Assessment & Strategic Recommendations
 
