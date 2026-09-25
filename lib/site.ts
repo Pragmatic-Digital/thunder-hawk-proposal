@@ -1,12 +1,12 @@
 export const site = {
   agency: "Pragmatic Digital",
   client: "ThunderHawk",
-  proposalLabel: "ThunderHawk Digital Platform Review",
+  proposalLabel: "Website audit and new website direction",
   prepared: "September 2026",
   email: "hello@pragmaticdigital.co.uk",
   phone: "0113 534 9949",
   address: "Mabgate Business Centre, 93–99 Mabgate, Leeds LS9 7DR",
-  heroHeading: "ThunderHawk, website audit and new website direction",
+  heroHeading: "Website audit and new website direction",
   heroBackgroundText: "ThunderHawk",
   recommendation:
     "Following our initial meeting, we have completed an audit of your digital platform and identified several key areas we’d like to discuss with you.",
