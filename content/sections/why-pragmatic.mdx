@@ -25,16 +25,52 @@ For Thunderhawk Studio specifically, this expertise translates into practical va
 
 ## Our experience with similar challenges
 
-### High-performance creative platforms
+Two projects show how we've tackled the same challenges a new ThunderHawk site would need to
+solve: bringing 3D to life in the browser, and delivering large volumes of visual media quickly and
+reliably
 
-We've built and optimised portfolio sites featuring 3D graphics, video and complex animations. We know how to load Spline scenes efficiently, handle large video assets without killing performance and structure code so animations don't create bottlenecks.
+### Mulholland Media: fast browsing and timelapse generation for large image libraries
 
-The Webflow video asset 429 errors you're experiencing? We've seen this before. It's a symptom of improper caching configuration or CDN rate limiting: fixable problems that don't require a full platform rebuild.
+**The brief.** Mulholland Media runs a network of construction site cameras, capturing images throughout
+the working day on projects lasting anything from a single day to several years. Its clients needed a
+quicker, more intuitive way to review progress over time.
 
-### CDN and asset delivery optimisation
+**What we built.** A new viewer, built as a React application and delivered through a WordPress plugin,
+backed by cloud storage and automated processing that creates optimised versions of every image.
 
-We've migrated video and asset delivery from platform-native CDNs to dedicated services, improving both performance and cost. This is directly relevant to the video loading issues we flagged in our audit.
+- **Images:** visitors land straight on the latest imagery and scrub through weeks or months on a
+timeline. Preloading and progressive loading mean images appear without waiting.
 
-### Webflow implementation and troubleshooting
+<Figure src="/images/screencapture-mulholland-pragmaticdigital-co-uk-construction-site-downtown-tower-2026-09-25-13_08_25.png" alt="Mulholland time based camera display" title="Mulholland Viewer" aspect="2:1" />
 
-We've extended Webflow with custom code, debugged performance issues and scaled platforms beyond Webflow's default capabilities. We know when Webflow is the right choice and when something custom makes more sense.
+- **Compare:** any two moments can be viewed side by side with a draggable divider, choosing the
+date and time for each.
+
+<Figure src="/images/screencapture-mulholland-pragmaticdigital-co-uk-construction-site-downtown-tower-2026-09-25-13_08_01.png" alt="Mulholland comparison tool for comparign images" title="Mulholland Viewer" aspect="2:1" /> 
+
+- **Videos:** select any date range and generate a downloadable timelapse on demand.
+
+<Figure src="/images/screencapture-mulholland-pragmaticdigital-co-uk-construction-site-downtown-tower-2026-09-25-13_08_34.png" alt="Mulholland video generation tool" title="Mulholland Viewer" aspect="4:3" /> 
+
+**Why it's relevant.** During our audit, some video files on your current site failed to load after being
+refused by the server. Mulholland's viewer was built around exactly this kind of problem: serving large
+volumes of high quality media quickly and reliably. The same approach would let ThunderHawk's
+renders and footage load consistently, and could power features such as comparing early renders with
+the finished piece.
+
+### Coryton: full website and interactive 3D facility
+
+**The brief.** Coryton develops, formulates and blends speciality fuels. It needed a website that could
+explain complex, technical operations clearly to a wide range of audiences.
+
+**What we built.** We designed and developed the full site in WordPress, from scroll-driven video
+transitions and animated interactions to The Lab, a content hub bringing together articles, research and
+video with filtering and infinite scroll.
+The centrepiece is an interactive facility map built in Three.js. Rather than relying on photography and
+diagrams, visitors can explore the site in 3D and discover each area of the operation for themselves.
+
+**Why it's relevant.** Your current site already uses 3D through Spline. A new site would need the same
+balance we struck for Coryton: 3D that's engaging but loads and performs well across devices, motion
+that guides rather than distracts, and a CMS your team can update easily.
+
+[Explore the Coryton facility](https://coryton.com/facility/)

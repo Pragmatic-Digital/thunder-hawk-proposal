@@ -9,12 +9,13 @@ export function Figure({
   src: string;
   alt: string;
   title?: string;
-  aspect?: "16:9" | "4:3" | "1:1";
+  aspect?: "16:9" | "4:3" | "1:1" | "2:1";
 }) {
   const aspectRatios = {
     "16:9": "aspect-video",
     "4:3": "aspect-[4/3]",
     "1:1": "aspect-square",
+    "2:1": "aspect-[2/1]",
   };
 
   return (

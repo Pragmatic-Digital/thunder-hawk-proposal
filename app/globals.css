@@ -646,3 +646,7 @@ body {
     transform: none !important;
   }
 }
+
+#why-pragmatic .proposal-prose a {
+  color: var(--color-paper);
+}
