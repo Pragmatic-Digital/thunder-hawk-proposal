@@ -3,8 +3,8 @@ import type { ProposalConfig } from "@/lib/config-schema";
 const config: ProposalConfig = {
   site: {
     agency: "Pragmatic Digital",
-    client: "Thunder Hawk",
-    proposalLabel: "Thunder Hawk Digital Platform Review",
+    client: "ThunderHawk",
+    proposalLabel: "ThunderHawk, website audit and new website direction",
     prepared: "September 2026",
     email: "hello@pragmaticdigital.co.uk",
     phone: "0113 534 9949",
@@ -12,7 +12,7 @@ const config: ProposalConfig = {
     // gtmId: "GTM-KZ4QZP7L",
     robotsIndex: false,
     description:
-      "Initial review and discovery findings following our audit of Thunder Hawk's digital platform, with ideas and recommendations to discuss.",
+      "Initial review and discovery findings following our audit of ThunderHawk's digital platform, with ideas and recommendations to discuss.",
   },
   theme: {
     colorPage: "#f3efe8",
@@ -23,7 +23,7 @@ const config: ProposalConfig = {
     colorInkMuted: "#8a8985",
     colorSage: "#5f6b58",
     colorSageDeep: "#45523e",
-    colorSageMist: "#e8ede5",  
+    colorSageMist: "#e8ede5",
     colorRule: "#e5dfd4",
     colorRuleStrong: "#c9bfb0",
     colorRecommend: "#5f6b58",

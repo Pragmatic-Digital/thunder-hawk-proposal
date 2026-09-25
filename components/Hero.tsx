@@ -66,7 +66,7 @@ export function Hero() {
               <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-ink-muted">
                 Subject
               </dt>
-              <dd className="mt-1.5 text-sm font-medium">Magento trade portal replacement</dd>
+              <dd className="mt-1.5 text-sm font-medium">Audit And Opportunities</dd>
             </div>
           </dl>
         </Reveal>
