@@ -1,12 +1,16 @@
 import { Reveal } from "@/components/Reveal";
 import { whyPragmatic } from "@/lib/site";
 
-export function WhyPragmatic() {
+export function WhyPragmatic({ tone = "invert" }: { tone?: "default" | "invert" } = {}) {
+  const isDark = tone === "invert";
+  const headingColor = isDark ? "text-paper" : "text-ink";
+  const sectionClass = isDark ? "invert-section border-t border-ink bg-ink text-paper" : "border-t border-rule";
+
   return (
     <section
       id="why-pragmatic"
       aria-labelledby="why-heading"
-      className="invert-section border-t border-ink bg-ink text-paper"
+      className={sectionClass}
     >
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <Reveal>
@@ -41,7 +45,7 @@ export function WhyPragmatic() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="text-lg font-medium tracking-tight">{point.title}</h3>
+                <h3 className={`text-lg font-medium tracking-tight ${headingColor}`}>{point.title}</h3>
                 <p className="mt-2 max-w-2xl text-[0.98rem] leading-relaxed text-paper/70">
                   {point.body}
                 </p>
@@ -66,7 +70,7 @@ export function WhyPragmatic() {
           <ul className="mt-12 divide-y divide-white/10 border-t border-white/10">
             {whyPragmatic.relevantExperience.cases.map((item, index) => (
               <Reveal as="li" key={item.title} delay={index * 80} className="print-keep py-10">
-                <h4 className="font-display text-[1.35rem] tracking-[-0.03em] sm:text-2xl">
+                <h4 className={`font-display text-[1.35rem] tracking-[-0.03em] ${headingColor} sm:text-2xl`}>
                   {item.title}
                 </h4>
                 <div className="mt-5 max-w-3xl space-y-4 text-[0.98rem] leading-relaxed text-paper/70 sm:text-base">

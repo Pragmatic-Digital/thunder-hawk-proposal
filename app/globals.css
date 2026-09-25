@@ -82,7 +82,7 @@ body {
 
 /* Markdown / proposal prose */
 .proposal-prose {
-  color: var(--color-ink-soft);
+  /* color: var(--color-ink-soft); */
   font-size: 1.02rem;
   line-height: 1.7;
 }
@@ -104,19 +104,12 @@ body {
 .proposal-prose h2,
 .proposal-prose h3,
 .proposal-prose h4 {
-  color: var(--color-ink);
+  color: inherit;
   font-family: var(--font-display);
   font-weight: 450;
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-wrap: balance;
-}
-
-/* Allow explicit text color classes to override default prose color */
-.proposal-prose h2[class*="text-"],
-.proposal-prose h3[class*="text-"],
-.proposal-prose h4[class*="text-"] {
-  color: inherit;
 }
 
 .proposal-prose h2 {
